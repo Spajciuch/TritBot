@@ -1,0 +1,950 @@
+{
+    "title": "PL",
+    "logs": {
+        "newMember": {
+            "embeds": {
+                "titles": [
+                    "Nowa osoba dołączyła na serwer"
+                ],
+                "fields": [
+                    "Nick"
+                ]
+            }
+        },
+        "memberRemove": {
+            "embeds": {
+                "titles": [
+                    "Osoba wyszła z serwera"
+                ],
+                "fields": [
+                    "Nick"
+                ]
+            }
+        },
+        "messageRemove": {
+            "embeds": {
+                "titles": [
+                    "Usunięta wiadomość",
+                    "Usunięte embedy",
+                    "Usunięta wiadomość [usuwanie zbiorowe]"
+                ],
+                "fields": [
+                    "Autor",
+                    "Kanał",
+                    "Treść",
+                    "--pusta--",
+                    "---embedy wiadomości wyślą się poniżej---"
+                ]
+            }
+        },
+        "messageEdit": {
+            "embeds": {
+                "titles": [
+                    "Edytowano wiadomość"
+                ],
+                "fields": [
+                    "Stara wiadomość",
+                    "Nowa wiadomość",
+                    "Autor wiadomości"
+                ]
+            }
+        },
+        "voiceState": {
+            "embeds": {
+                "titles": [
+                    "Opuszczenie kanału głosowego",
+                    "Dołączenie na kanał głosowy",
+                    "Zmiana kanału głosowego"
+                ],
+                "fields": [
+                    "Osoba",
+                    "Kanał głosowy",
+                    "Stary kanał",
+                    "Nowy kanał"
+                ]
+            }
+        },
+        "warn": {
+            "embeds": {
+                "fields": [
+                    "Osoba zgłoszona",
+                    "Administrator",
+                    "Powód"
+                ]
+            }
+        }
+    },
+    "commands": {
+        "ball": {
+            "replies": "Musisz zadać pytanie",
+            "help": "Zadaj pytanie na które można odpowiedzieć tak/nie"
+        },
+        "ascii": {
+            "help": "Generuje ASCII tekst"
+        },
+        "avatar": {
+            "embeds": {
+                "titles": [
+                    "Avatar użytkownika ",
+                    "Twój avatar"
+                ]
+            },
+            "help": "Pokazuje avatar -> $avatar <osoba>"
+        },
+        "ban": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "error": "wystąpił błąd przy banowaniu, może nie mam permisji",
+                "no_reason": "[brak powodu]",
+                "no_member": "oznacz osobę",
+                "cannot_ban": "nie mogę go zbanować"
+            },
+            "embeds": {
+                "descriptions": [
+                    "Zbanowano ",
+                    " przez ",
+                    "Powód:"
+                ]
+            },
+            "help": "Banuje osobę -> $ban @osoba <powód>"
+        },
+        "cat": {
+            "embeds": {
+                "titles": [
+                    "Kotek 😻"
+                ]
+            },
+            "help": "Wysyła losowe zdjęcie kotka :3"
+        },
+        "check": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "no_member": "oznacz osobę",
+                "no_warns": "osoba nie była zgłaszana ani razu"
+            },
+            "embeds": {
+                "titles": [
+                    "Zgłoszenia użytkownika "
+                ],
+                "footers": [
+                    "Nie ustaliłeś maksymalnej ilości zgłoszeń wymaganych do bana",
+                    "Do bana brakuje "
+                ]
+            },
+            "help": "Sprawdza zgłoszenia użytkownika"
+        },
+        "clear": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "no_args": "podaj liczbę wiadomości do usunięcia",
+                "range": "podaj liczbę w zakresie 1-100",
+                "finalResponse": [
+                    "Usunięto ",
+                    " wiadomości"
+                ]
+            },
+            "help": "Czyści podaną ilość wiadomości (1 -> 100)"
+        },
+        "counting": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "succes": "pomyślnie ustawiono ten kanał jako kanał do liczenia",
+                "error": "wystąpił błąd podczas ustawiania kanału",
+                "off": "wyłączono funkcję liczenia na tym kanale",
+                "next": "Następna liczba:"
+            },
+            "help": "Ustawia liczenie na danym kanale, aby wyłączyć użyj 2 raz"
+        },
+        "dab": {
+            "help": "Wysyła dabujące zdjęcie z twoim awatarem"
+        },
+        "daily": {
+            "replies": {
+                "createAcc": "Założono konto, stan **50**<:coin:565840795748401152>",
+                "not_ready": "Daily jeszcze nie gotowe, zgłoś się za: "
+            },
+            "embeds": {
+                "titles": [
+                    "Właściciel konta:"
+                ],
+                "fields": [
+                    "Dodano"
+                ]
+            },
+            "help": "Dodaje codziennie 250<:coin:565840795748401152> do twojego konta"
+        },
+        "dankmemes": {
+            "replies": {
+                "start": "od teraz będziesz otrzymywał nowe posty z r/dankmemes na ten kanał",
+                "stop": "już nie będziesz otrzymywał nowych postów z r/dankmemes",
+                "error": "wystąpił błąd",
+                "permission_error": "nie masz uprawnień"
+            },
+            "help": "Automatycznie wysyła memy z r/dankmemes na kanał, aby wyłączyć użyj 2 raz"
+        },
+        "dog": {
+            "embeds": {
+                "titles": [
+                    "🐶 Piesek"
+                ]
+            },
+            "help": "Wysyła losowe zdjęcie pieska :3"
+        },
+        "fortnite": {
+            "embeds": {
+                "titles": [
+                    "Statystyki użytkownika ",
+                    "Wyzwania fortnite"
+                ],
+                "fields": [
+                    "Statystyki użytkownika ",
+                    "Ogólny wynik",
+                    "Rozegrane mecze",
+                    "Zabójstwa",
+                    "Zabójstwa na mecz",
+                    "K/D",
+                    "Wygrane",
+                    "Cel:"
+                ]
+            },
+            "replies": {
+                "valid": "poprawne użycie `$fortnite stats <nick> | <platforma - pc/xbl/psn > | <solo/duo/squad>`",
+                "error": "wystąpił błąd"
+            },
+            "help": "Możesz sprawdzić dzisiejsze wyzwania komendą $fortnite challenges lub sprawdzić czyjeś statystyki `$fortnite stats <nick> | <platforma - pc/xbl/psn > | <solo/duo/squad>`"
+        },
+        "gif": {
+            "replies": {
+                "cannot_find": "nie mogę znaleźć gifa :/"
+            },
+            "help": "Wysyła gifa -> $gif <nazwa>"
+        },
+        "last": {
+            "embeds": {
+                "titles": [
+                    "Ostatni update Trit'a"
+                ]
+            },
+            "help": "Pokazuje ostatni update bota"
+        },
+        "hug": {
+            "embeds": {
+                "titles": [
+                    " przytula "
+                ]
+            },
+            "help": "Przytulasz osobę"
+        },
+        "info": {
+            "embeds": {
+                "inField": {
+                    "bot_info": "**Jestem botem** stworzonym do uniwersalnego użytku na serwerach, Moim twórcą jest Spyte#3976\nMożesz sprawdzić mojego [twittera](https://twitter.com/TritDiscord) ;3 - aby otrzymywać informacje o update'ach - możesz też tam zgłaszać błędy",
+                    "members": "osób",
+                    "guilds": "serwerów"
+                },
+                "titles": [
+                    "Informacje o bocie"
+                ],
+                "footers": [
+                    "Informacje z dnia"
+                ],
+                "fields": [
+                    "Kim ja tak w ogóle jestem",
+                    "Obsługuję",
+                    "Data stworzenia",
+                    "Data dołączenia na serwer",
+                    "Czas działania",
+                    "Ostatni update"
+                ]
+            },
+            "help": "Pokazuje informacje o bocie"
+        },
+        "inventory": {
+            "embeds": {
+                "titles": [
+                    "Ekwipunek "
+                ]
+            },
+            "replies": {
+                "empty": "nie masz nic w ekwipunku!",
+                "cannot_find": "nie znaleziono takiego przedmiotu w twoim ekwipunku",
+                "used": "użyłeś",
+                "error": "wystąpił błąd",
+                "wrong_number": "podałeś niepoprawną liczbę, dostępny zakres **1 -> ",
+                "warning": "**!!!UWAGA!!!**\nTa komenda wyczyści twoje inventory, kontynuować?",
+                "cleared": "pomyślnie wyczyszczono ekwipunek",
+                "canceled": "anulowano"
+            },
+            "help": "Przedmioty kupione ze sklepu - `use`, `remove`, `<brak>`"
+        },
+        "invite": {
+            "help": "Wysyła link do zaproszenia bota na serwer"
+        },
+        "kick": {
+            "embeds": {
+                "descriptions": [
+                    "Wywalono ",
+                    " przez ",
+                    "\nPowód: "
+                ]
+            },
+            "replies": {
+                "no_mention": "oznacz użytkownika",
+                "no_reason": "podaj powód",
+                "permission_error": "nie masz uprawnień",
+                "cannot_kick": "nie mogę wywalić tego użytkownika"
+            },
+            "help": "Wywala użytkownika -> $kick @osoba <powód>"
+        },
+        "kiss": {
+            "help": "Całujesz osobę"
+        },
+        "lock": {
+            "replies": {
+                "done": "kanał został zablokowany",
+                "error": "wystąpił błąd"
+            },
+            "help": "Blokuje wysyłanie wiadomości na kanale"
+        },
+        "mute": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "no_member": "nie mogę znaleźć tego używkownika",
+                "no_time": "nie ustaliłeś czasu",
+                "done": " został zmutowany na ",
+                "unmute": " został odmutowany!"
+            },
+            "help": "Wycisza użytkownika -> $mute <czas>"
+        },
+        "nasa": {
+            "embeds": {
+                "titles": [
+                    ":star: Atronomiczne zdjęcie dnia"
+                ]
+            },
+            "help": "Wysyła astronomiczne zdjęcie dnia"
+        },
+        "note": {
+            "embeds": {
+                "titles": [
+                    "Twoje notatki",
+                    "Notatka z dnia "
+                ],
+                "fields": [
+                    "Aby zobaczyć $note read **"
+                ]
+            },
+            "replies": {
+                "proper_use": "poprawne użycie: $note create <treść>/read <numerek>",
+                "saved": "pomyślnie zapisano notatkę, aby ją zobaczyć: $note read",
+                "error": "wystąpił błąd przy zapisywaniu",
+                "no_notes": "nie masz jeszcze notatek (aby stworzyć $note create `treść`)",
+                "notfound": "nie znaleziono notatki"
+            },
+            "help": "Stwórz notatkę -> $note create <treść> / $note read <numer na liście>"
+        },
+        "pat": {
+            "embeds": {
+                "titles": [
+                    "głaszcze"
+                ]
+            },
+            "help": "Głaszczesz osobę"
+        },
+        "profile": {
+            "replies": "**POBIERANIE INFORMACJI**",
+            "help": "Pokazuje profil"
+        },
+        "punch": {
+            "embeds": {
+                "titles": [
+                    "uderza"
+                ]
+            },
+            "help": "Uderzasz kogoś"
+        },
+        "questionnaire": {
+            "embeds": {
+                "descriptions": [
+                    "**Odpowiedzi:**\n"
+                ],
+                "titles": [
+                    "Ankieta"
+                ]
+            },
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "proper_use": "poprawne użycie: \n$questionnaire <kanał> <pytanie> | <odpowiedzi oddzielane ` | `>"
+            },
+            "help": "Tworzy ankietę -> $questionnaire <kanał> <pytanie> | <odpowiedzi oddzielane ` | `>"
+        },
+        "roleMenu": {
+            "embeds": {
+                "titles": [
+                    "Lista ról"
+                ],
+                "fields": [
+                    "Sposób dodania",
+                    "Aby dodać sobie rolę użyj:\n`$roleMenu get **nazwa**`"
+                ]
+            },
+            "replies": {
+                "setup": "rozpocznij tworzenie menu ról komendą \n`$roleMenu setup @rola1 @rola2 itd` itd\nJeśli zapomniałeś dodać jakiejś roli użyj $roleMenu add @rola1 @rola2\nAby dodać sobie rolę użyj:\n`$roleMenu get **nazwa**`\nJeśli chcesz zobaczyć listę ról użyj `$roleMenu list`",
+                "permission_error": "nie masz uprawnień",
+                "succes": "ustawiono listę",
+                "add": "dodano rolę do menu",
+                "add_error": "wystąpił problem z ustawieniem roli w bazie danych",
+                "no_name": ":x: Podaj nazwę roli",
+                "cannot_find": "nie można znaleźć roli. Upewnij się, że podałeś odpowiednią nazwę",
+                "removed": "pomyślnie usunięto rolę",
+                "remove_error": "wystąpił problem z usunięciem roli z bazy danych",
+                "no_menu": "ten serwer nie ma menu z rolami, aby go stworzyć: `$roleMenu setup @rola1 @rola2` itd",
+                "cannot_remove": "nie mogę usunąć roli, prawdopodobnie nie mam wystarczających uprawnień lub podałeś nieprawidłową nazwę \n[aby zobaczyć listę użyj: `$roleMenu list`], \nmożesz skontaktować się też z właścicielem serwera",
+                "remove_your_role": "pomyślnie usunięto ci rolę `",
+                "give_role": "pomyślnie ustawiono ci rolę `",
+                "cannot_give": "nie mogę ustawić ci roli, prawdopodobnie nie mam wystarczających uprawnień lub podałeś nieprawidłową nazwę \n[aby zobaczyć listę użyj: `$roleMenu list`], \nmożesz skontaktować się też z właścicielem serwera",
+                "gived": "nie mogę ustawić ci roli, prawdopodobnie nie mam wystarczających uprawnień lub podałeś nieprawidłową nazwę \n[aby zobaczyć listę użyj: `$roleMenu list`], \nmożesz skontaktować się też z właścicielem serwera"
+            },
+            "help": "`$roleMenu setup @rola1 @rola2` itd\nJeśli zapomniałeś dodać jakiejś roli użyj $roleMenu add @rola1 @rola2 itd\nAby dodać sobie rolę użyj:\n`$roleMenu get **nazwa**`\nJeśli chcesz zobaczyć listę ról użyj `$roleMenu list`"
+        },
+        "google": {
+            "help": "Wyszukaj w google -> $google <szukana fraza>"
+        },
+        "server": {
+            "embeds": {
+                "fields": [
+                    "Nazwa",
+                    "Właściciel",
+                    "Region",
+                    "Kanały",
+                    "Użytkownicy",
+                    "Ludzie",
+                    "Boty",
+                    "Online",
+                    "Role"
+                ],
+                "footers": [
+                    "Serwer stworzony"
+                ]
+            },
+            "help": "Pokazuje informacje o serwerze"
+        },
+        "settings": {
+            "embeds": {
+                "help_titles": [
+                    "Warny",
+                    "Logi",
+                    "Embed color",
+                    "Prefix",
+                    "Wiadomość powitalna",
+                    "Wiadomość pożegnalna",
+                    "Automatyczna rola",
+                    "Leveling"
+                ],
+                "help_pages": [
+                    "Aby ustawić liczbę warnów wymaganych do bana napisz $settings warns <liczba>",
+                    "Komendy należy użyć na kanle na logi\nAby włączyć/wyłączyć logi trzeba użyć komendy $logs on/off\n**[domyślnie są wyłączone]**",
+                    "Aby ustawić kolor embedów (czyli wiadomości w takim jak ta okienku) podajesz po komendzie kolor w HEX\nNp: $settings color #ff00aa (Dla koloru różowego)",
+                    "Aby ustawić prefix bota, podajesz nowy po komendzie\nNp: $settings prefix ! [nowy prefix to '!']",
+                    "Aby wybrać wiadomość powitalną użyj komendy $settings welcome (off) <wiadomość> na odpowiednim kanale\nAby bot podał nick osoby użyj '/member/'\nNp: $settings welcome Wtaj na serwerze /member/",
+                    "Aby wybrać wiadomość pożegnalną użyj komendy $settings gbmsg (off) <wiadomość> na odpowiednim kanale\nAby bot podał nick osoby użyj '/member/'\nNp: $settings gbmsg Żegnaj /member/",
+                    "Aby ustawić automatyczną rolę, którą dostanie nowa osoba, oznacz ją po komendzie\nNp:$settings role @nowy\nAby to działało rola `Trit` musi być wyżej niż rola (w tym przypadku) `nowy`",
+                    "Aby włączyć/wyłączyć levelowanie użyj komendy $settings leveling on/off"
+                ],
+                "descriptions": [
+                    "Aby uzyskać dodatkowe informacje użyj komendy $settings help"
+                ],
+                "titles": [
+                    "Ustawienia",
+                    "Dodatkowe informacje"
+                ],
+                "fields": [
+                    "Kolor embed",
+                    "Prefix",
+                    "Automatyczna rola",
+                    "Ilość wymaganych zgłoszeń do bana",
+                    "Lewelowanie",
+                    "Wiadomość powitalna",
+                    "Wiadomość pożegnalna",
+                    "Wiadomość pożegnalna [treść]",
+                    "Kanał na wiadomość powitalną",
+                    "Kanał na wiadomość pożegnalną",
+                    "Wiadomość powitalna [treść]",
+                    "Logi",
+                    "Kanał na logi"
+                ]
+            },
+            "replies": {
+                "warns": "ilość warnów potrzebna do bana wynosi: `",
+                "logs_on": "włączono logi na tym kanale",
+                "logs_off": "wyłączono logi",
+                "leveling_on": "włączono zdobywanie kolejnych poziomów",
+                "leveling_off": "wyłączono zdobywanie kolejnych poziomów",
+                "wmsg_on": "włączono wiadomość powitalną na tym kanale",
+                "wmsg_off": "wyłączono wiadomość powitalną",
+                "gbmsg_on": "włączono wiadomość pożegnalną na tym kanale",
+                "gbmsg_off": "wyłączono wiadomość pożegnalną",
+                "wrole": "automatyczna rola to: `",
+                "prefix": "nowy prefix to: `",
+                "embed_color": "kolor embed to teraz: `"
+            },
+            "help": "Ustawienia bota na tym serwerze"
+        },
+        "someone": {
+            "help": "Oznacz losową osobę"
+        },
+        "status": {
+            "channels": ["Data", "Członkowie", "Online", "Rekord online", "Ostatnia osoba", "--nikt jeszcze nie dołączył --"],
+            "embeds": {
+                "titles": ["Statystyki"],
+                "descriptions": ["Twoje nazwy kanałów ze statystykami"],
+                "fields": ["Jeśli chcesz zmienić nazwy kanałów", "Uzyj komendy $status customize ` < 1 - 5 > < nowa nazwa > `"]
+            },
+            "replies": {
+                "isNaN": "najpierw musisz podać liczbę",
+                "range": "podaj liczbę w przedziale `<1-5>`",
+                "no_name": "podaj nową nazwę kanału",
+                "success": "pomyślnie zmieniono nazwę kanału"
+            },
+            "help": "Statystyki serwera - kanały głosowe\n`$status customize` aby zmienić wygląd"
+        },
+        "store": {
+            "embeds": {
+                "titles": [
+                    "Sklep serwerowy"
+                ]
+            },
+            "replies": {
+                "no_store": "ten serwer nie ma sklepu",
+                "permission_error": "nie masz wymaganych uprawnień",
+                "price_NaN": "cena musi być liczbą!",
+                "proper_use_add": "jeśli chcesz dodać itemki do sklepu to: `$store add itemek | cena` aby dodać rolę zamiast itemku podaj @rola -> `$store add @rola | cena`",
+                "error": "wystąpił problem ```",
+                "added": [
+                    "dodano",
+                    "za cenę"
+                ],
+                "to_buy": "aby kupić przedmiot `$store buy nazwa` *lub* `$store buy numer_na_liście`",
+                "notfound": "nie znaleziono przedmiotu",
+                "no_credits": "nie masz wymaganej ilości pieniędzy",
+                "bought": "pomyślnie zakupiono **",
+                "range": "podałeś niepoprawną liczbę,  **dostępny zakres:** 1 -> ",
+                "warning": "**!!!UWAGA!!!**\nTa komenda wyczyści cały sklep, kontynuować?",
+                "cleared": "pomyślnie usunięto sklep",
+                "canceled": "anulowano ✅",
+                "no_args": "aby usunąć którąś pozycję ze sklepu `$store remove nazwa_itemku` *lub* `$store remove numer_na_liscie`",
+                "deleted": "pomyślnie usunięto **"
+            },
+            "help": "Sklepik serwerowy, opcje: <brak>/add/buy/clear/remove"
+        },
+        "stream": {
+            "embeds": {
+                "titles": [
+                    "Lista dostępnych stacji"
+                ],
+                "fields": [
+                    "Instrukcja",
+                    "Aby włączyć jakąś stację `$stream openfm` <pełna nazwa stacji>`\nJeśli chcesz wyłaczyć odtwarzanie użyj komendy `$leave` **na tym kanale**"
+                ]
+            },
+            "replies": {
+                "no_channel": ":x: musisz być na kanale głosowym",
+                "no_proper_name": "podaj odpowiednią nazwę",
+                "turned_on": "włączono radio\nJeśli chcesz wyłaczyć odtwarzanie użyj komendy `$leave` **na tym kanale**",
+                "error": "błąd: ```"
+            },
+            "help": "Jeśli chcesz posłuchać openfm użyj `$stream openfm <pełna nazwa stacji>`\nLub jeśli masz swój link do strumienia audio możesz użyć komendy `$stream custom <twój link>`"
+        },
+        "top": {
+            "embeds": {
+                "titles": [
+                    "Topka serwera "
+                ],
+                "footers": [
+                    "Twoja pozycja"
+                ]
+            },
+            "help": "Top-lista serwera"
+        },
+        "top-month": {
+            "embeds": {
+                "titles": [
+                    "Miesięczna topka serwera "
+                ],
+                "footers": [
+                    "Twoja pozycja"
+                ]
+            },
+            "help": "Miesięczna top-lista serwera"
+        },
+        "unlock": {
+            "replies": {
+                "success": "kanał został odblokowany"
+            },
+            "help": "Odblokowywuje kanał"
+        },
+        "verification": {
+            "embeds": {
+                "titles": [
+                    "Weryfikacja"
+                ],
+                "fields": [
+                    "Lista ról"
+                ],
+                "descriptions": [
+                    "Hej, jeśli jesteś nowy na serwerze musisz się zweryfikować\nAby to zrobić po prostu napisz na tym kanale `weryfikacja`",
+                    "Hej, jeśli jesteś nowy na serwerze musisz się zweryfikować\nAby to zrobić po prostu zareaguj pod tą wiadomością `❤`"
+                ]
+            },
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "error": "wystąpił błąd ",
+                "success": "pomyślnie ustawiono weryfikację, nie usuwaj wiadomości poniżej",
+                "disable": "wyłączono weryfikację",
+                "no_roles": "poprawne użycie: `$verification create @rola_początkowa`"
+            },
+            "help": "$verification create @rola\n**NOWOŚĆ** możesz też użyć weryfikacji za pomocą dodania reakcji do wiadomości. Po prostu napisz $verification reaction @rola."
+        },
+        "warn": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "no_member": "podaj użytkownika i powód",
+                "no_reason": "podaj powód!",
+                "forBan": "pamiętaj ustawić liczbę warnów potrzebnych do zbanowania osoby pod komendą `$settings warns <liczba>`",
+                "warned": "pomyślnie zgłoszono użytkownika **",
+                "banned": "zbanowano użytkownika ",
+                "cannot_ban": "nie udało się zbanować "
+            },
+            "help": "Zgłoś użytkownika"
+        },
+        "weather": {
+            "embeds": {
+                "titles": [
+                    "Pogoda w: "
+                ],
+                "footers": [
+                    "Dane pobrano o: "
+                ],
+                "fields": [
+                    "Temperatura odczuwalna",
+                    "Temperatura",
+                    "Wilgotność",
+                    "Prędkość wiatru",
+                    "Strefa czasowa"
+                ]
+            },
+            "replies": {
+                "error": "błąd przy pobieraniu danych"
+            },
+            "help": "Pokazuje pogodę w podanej miejscowości"
+        },
+        "who_host": {
+            "replies": {
+                "error": "bład - niepoprawny adres URL"
+            },
+            "embeds": {
+                "titles": [
+                    "Informcje o stronie"
+                ],
+                "fields": [
+                    "Dostęp",
+                    "IP",
+                    "Strona hostowana przez"
+                ]
+            },
+            "help": "Informacje o tym przez jaki serwer jest hostowan dana strona -> $who_host <link>"
+        },
+        "badword": {
+            "embeds": {
+                "titles": [
+                    "Czy to jest twoja lista słów?"
+                ],
+                "footers": [
+                    "Aby wyłączyć filtr słów, napisz $badword disable"
+                ]
+            },
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "proper_use": "podaj słowa, oddzielając je ` | `",
+                "success": "ustawiono nową listę banowanych słów",
+                "canceled": "anulowano",
+                "disabled": "wyłączono filtr słów",
+                "warning": "zostałeś zgłoszony za użycie zakazanego słowa",
+                "reason": "użycie zbanowanego słowa"
+            },
+            "help": "$badword <słowa oddzielone ` | `>"
+        },
+        "work": {
+            "embeds": {
+                "descriptions": [
+                    "Nie możesz teraz pracować\nPraca będzie możliwa za:"
+                ],
+                "fields": [
+                    "Jako ",
+                    " zarobiłeś ",
+                    "Stan konta"
+                ]
+            },
+            "help": "Komenda, którą można zdobyć <:coin:565840795748401152>"
+        },
+        "language": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "proper_use": "poprawne użycie $language PL/EN",
+                "success_PL": "ustawiono język na polski",
+                "success_EN": "laguage has been set to: **EN**"
+            },
+            "help": "Ustaw język bota"
+        },
+        "help": {
+            "replies": {
+                "no_command": "nie można znaleźć komendy o takiej nazwie"
+            },
+            "embeds": {
+                "titles": [
+                    "Info",
+                    "Gry",
+                    "Cleverbot",
+                    "Ekonomia",
+                    "Komendy użytkowe / 4fun",
+                    "Komendy administracyjne",
+                    "Komendy informacyjne",
+                    "Muzyka",
+                    "Informacje o komendzie",
+                    "Opis komendy"
+                ],
+                "descriptions": [
+                    "Liczba wszystkich komend: ",
+                    "\nJeśli masz jakiekolwiek problemy wbij na [serwer pomocy](https://discord.gg/yfzXY5g)\nWpadnij też na mojego [twittera](https://twitter.com/TritDiscord) ;3 - tam też możesz zgłosić błędy",
+                    "Aby włączyć cleverbota utwórz kanał #cleverbot",
+                    "Użyj komendy musichelp"
+                ]
+            }
+        },
+        "unwarn": {
+            "replies": {
+                "error": "wystąpił problem",
+                "permission_error": "nie masz uprawnień",
+                "no_member": "oznacz osobę",
+                "no_args": "podaj numer zgłoszenia / treść",
+                "notfound": "nie znaleziono zgłoszenia",
+                "number_error": "podaj poprawną liczbę",
+                "success": "usunięto zgłoszenie"
+            },
+            "help": "Usuń czyjegoś warna -> $unwarn @osoba powod"
+        },
+        "ttt": {
+            "embeds": {
+                "titles": [
+                    "Instrukcja",
+                    "Wygrana",
+                    "Remis"
+                ],
+                "descriptions": [
+                    "Podawaj adresy pól, np b2\nAby przerwać: $abort",
+                    "Zwycięża",
+                    "Remis"
+                ]
+            },
+            "replies": {
+                "no_mention": "oznacz przeciwnika",
+                "taken": "to pole jest zajęte",
+                "not_proper": "podaj poprawny adres",
+                "bot": "nie możesz oznaczyć bota"
+            },
+            "help": "Gra w kółko i krzyżyk, $ttt @osoba"
+        },
+        "blacklist": {
+            "replies": {
+                "error": "wystąpił błąd",
+                "permission_error": "nie masz uprawnień",
+                "proper_use": "$blacklist list / add <ID osoby> / remove <ID osoby>",
+                "empty": "lista jest pusta",
+                "no_id": "podaj poprawne ID",
+                "success": "Poprawnie dodano pozycję do czarnej listy",
+                "cannot_find": "nie można znaleźć tego ID na czarnej liście",
+                "success_remove": "pomyślnie usunięto pozycję z czarnej listy"
+            },
+            "embeds": {
+                "titles": [
+                    "Czarna lista"
+                ]
+            },
+            "help": "Czarna lista - osoba nie będzie mogła dołączyć na serwer - $blacklist list / add <ID osoby> / remove <ID osoby>"
+        },
+        "credits": {
+            "replies": {
+                "your_ballance": "twój stan konta wynosi",
+                "no_account": "nie masz żadnych",
+                "no_member": "oznacz osobę",
+                "no_credits": "podaj liczbę <:coin:565840795748401152> do przelania",
+                "tooMuch": "nie masz tyle <:coin:565840795748401152>",
+                "success": [":outbox_tray: Pomyślnie przelano ", "<:coin:565840795748401152>"],
+                "success_add": ["<:plus_emoji:611226047119360028> Dodano", "użytkownikowi"],
+                "permission_error": "nie masz uprawnień"
+            },
+            "help": "$credits <bez argumentów> / transfer @osoba <kwota> / add @osoba <kwota>"
+        },
+        "application": {
+            "replies": {
+                "permission_error": "nie masz wymaganych uprawnień",
+                "use": "poprawne użycie: `$application pytanie | pytanie | pytanie`",
+                "success": "ustawiono pytania do rekrutacji",
+                "instruction": "Ktoś ubiegający się o rangę po wpisaniu komendy $apply dostanie listę pytań"
+            },
+            "help": "Rekrutacja, ktoś ubiegający się o rangę po wpisaniu komendy $apply dostanie listę pytań -> `$application pytanie | pytanie | pytanie`"
+        },
+        "whois": {
+            "embeds": {
+                "titles": [
+                    "Informacje o "
+                ],
+                "fields": [
+                    "Konto stworzone",
+                    "Dołączył na serwer",
+                    "Role",
+                    "Uprawnienia",
+                    "O sobie",
+                    "Poziom"
+                ]
+            },
+            "replies": {
+                "success": "pomyślnie ustawiono informację",
+                "error": "nie udało się ustawić informacji",
+                "noInfo": "-brak-\nAby ustawić `$whois set <tekst>`"
+            },
+            "help": "Pokazuje informacje o koncie -> $whois opcjonalnie => @osoba, `permissions - aby zobaczyć uprawnienia osoby`, `set - ustawiasz informację o sobie`"
+        },
+        "propositions": {
+            "embeds": {
+                "titles": [
+                    "Propozycja od "
+                ]
+            },
+            "replies": {
+                "successEnable": "pomyślnie ustawiono funkcję propozycji na tym kanale",
+                "successDisable": "pomyślnie wyłączono funkcję propozycji Na tym kanale",
+                "noPermissions": "(prawdopodobnie) Nie mam permisji, aby wysłać propozycje na kanale ",
+                "permissionError": "nie masz uprawnień"
+            },
+            "help": "Komenda, która ułatwia gromadzenie różnorakich propozycji, stwórz kanał na propozycje i użyj na nim komendy $propositions"
+        },
+        "anon": {
+            "embeds": {
+                "titles": [
+                    "Nowa wiadomość"
+                ]
+            },
+            "replies": {
+                "successEnable": "pomyślnie ustawiono funkcję anonimowego chatu na tym kanale",
+                "successDisable": "pomyślnie wyłączono funkcję anonimowego chatu Na tym kanale",
+                "noPermissions": "(prawdopodobnie) Nie mam permisji, aby wysłać wiadomości na kanale ",
+                "permissionError": "nie masz uprawnień"
+            },
+            "help": "Ustawia anonimowy chat - gdy ktoś wysyła wiadomość, to bot ją usuwa i wysyła jej treść bez podawania autora"
+        },
+        "antiRaid": {
+            "replies": {
+                "enable": "pomyślnie aktywowano anty raida",
+                "disable": "pomyślnie wyłączono anty raida",
+                "permission_error": "nie masz uprawnień",
+                "enableMessage": "włączono moduł wykrywający spam",
+                "enableInvite": "włączono moduł wykrywający zaproszenia do serwera",
+                "disableMessage": "wyłączono moduł wykrywający spam",
+                "disableInvite": "wyłączono moduł wykrywający zaproszenia do serwera",
+                "noId": "nie znaleziono takiego kanału na liście ignorowanych przez antiraida",
+                "channelAdded": "pomyślnie dodano kanał do listy",
+                "channelRemoved": "pomyślnie usunięto kanał z listy"
+            },
+            "embeds": {
+                "titles": [
+                    "Anty Raid - Konfiguracja",
+                    "Aby skonfigurować..."
+                ],
+                "fields": [
+                    "Anty Raid (ogólnie)",
+                    "Moduł anty-spam",
+                    "Moduł anty-zaproszenia",
+                    "Stan",
+                    "Wykluczone kanały"
+                ],
+                "descriptions": [
+                    "**Aby aktywować lub dezaktywować moduły:**\n > $antiRaid configure spamModule on/off\n > $antiRaid configure inviteModule on/off\n**Jeśli chcesz dodać ignorowane kanały:**\n> $antiRaid configure ignoredChannels add #kanał"
+                ]
+            },
+            "help": "Aby włączyć / wyłączyć cały moduł, $antiraid <bez argumentów> / Jeśli chcesz zobaczyć stan poszczególnych modułów, użyj $antiRaid configuration"
+        },
+        "command": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "no_commandName": "podaj nazwę komendy",
+                "no_command": "nie można znaleźć komendy o takiej nazwie",
+                "enable": "włączono komendę",
+                "disable": "wyłączono komendę",
+                "disabled": "komenda jest wyłączona"
+            },
+            "help": "możesz włączyć lub wyłączyć komendy na swoim serwerze, $command enable/disable <nazwa_komendy>"
+        },
+        "voiceDetect": {
+            "replies": {
+                "permission_error": "nie masz uprawnień",
+                "enabled": "aktywowano detekcję dołączenia na kanał głosowy",
+                "disabled": "dezaktywowano detekcję dołączenia na kanał głosowy"
+            },
+            "help": "bot wykrywa kiedy ktoś dołącza na kanał głosowy i nadaje użytkownikowi odpowiednią rolę"
+        },
+        "responses": {
+            "replies": {
+                "succes_on": "pomyślnie włączono reakcje na wiadomości",
+                "succes_off": "pomyślnie wyłączono reakcje na wiadomości"
+            },
+            "help": "$responses - w ten sposób włączysz odpowiedzi i reakcje bota na pewne słowa w wiadomościach"
+        },
+        "achievement": {
+            "reply": "tekst nie może zawierać polskich znaków",
+            "help": "Wysyła achievement z twoim tekstem"
+        },
+        "genmeme": {
+            "replies": {
+                "no_text": "podaj tekst mema oddzielając je `|` -> `teks_gora | tekst_dol`"
+            },
+            "help": "Wygeneruj meme z avatara -> $genmeme @osoba teks_gora | tekst_dol"
+        }
+    },
+    "responses": [
+        "tak",
+        "nie",
+        "może",
+        "meh...nie",
+        "możliwe :P",
+        "XD nie rozśmieszaj mnie"
+    ],
+    "jobs": [
+        "projektant męskiej bielizny",
+        "konstruktor trumien",
+        "fortnite",
+        "Asystent rzucającego nożami",
+        "syrenka",
+        "chodnikowy sprzątacz gum do żucia",
+        "upychacz w metrze",
+        "model w zakładzie pogrzebowym",
+        "tester chrupkości chipsów",
+        "tester poziomu wygody toalet",
+        "Rucający nożami",
+        "Piłka antystresowa"
+    ],
+    "payment": [
+        "70",
+        "70",
+        "-200",
+        "120",
+        "50",
+        "55",
+        "65",
+        "52",
+        "150",
+        "100",
+        "80",
+        "99"
+    ]
+}

@@ -1,0 +1,926 @@
+{
+    "title": "EN",
+    "logs": {
+        "newMember": {
+            "embeds": {
+                "titles": [
+                    "New member joined"
+                ],
+                "fields": [
+                    "Nick"
+                ]
+            }
+        },
+        "memberRemove": {
+            "embeds": {
+                "titles": [
+                    "Member left this server"
+                ],
+                "fields": [
+                    "Nick"
+                ]
+            }
+        },
+        "messageRemove": {
+            "embeds": {
+                "titles": [
+                    "Deleted message",
+                    "Deleted embeds",
+                    "Deleted message [bulk delete]"
+                ],
+                "fields": [
+                    "Author",
+                    "Channel",
+                    "Content",
+                    "--empty--",
+                    "---embeds will be sent below---"
+                ]
+            }
+        },
+        "messageEdit": {
+            "embeds": {
+                "titles": [
+                    "Message has been edited"
+                ],
+                "fields": [
+                    "Old content",
+                    "New content",
+                    "messages author"
+                ]
+            }
+        },
+        "voiceState": {
+            "embeds": {
+                "titles": [
+                    "Leaving voice channel",
+                    "Joining voice channel",
+                    "Changing voice channel"
+                ],
+                "fields": [
+                    "Member",
+                    "Voice Channel",
+                    "Old channel",
+                    "New channel"
+                ]
+            }
+        },
+        "warn": {
+            "embeds": {
+                "fields": [
+                    "Warned member",
+                    "Administrator",
+                    "Reason"
+                ]
+            }
+        }
+    },
+    "commands": {
+        "ball": {
+            "replies": "you must ask a question",
+            "help": "ask a question that bot can answer yes or no"
+        },
+        "ascii": {
+            "help": "Generate ASCII-art text"
+        },
+        "avatar": {
+            "embeds": {
+                "titles": [
+                    "Avatar of ",
+                    "Your avatar"
+                ]
+            },
+            "help": "Show someone's avatar -> $avatar <member>"
+        },
+        "ban": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "error": "an error occured, maybe i've got no permission",
+                "no_reason": "[no reason]",
+                "no_member": "mention someone",
+                "cannot_ban": "i can not ban him"
+            },
+            "embeds": {
+                "descriptions": [
+                    "Banned ",
+                    " by ",
+                    "Reason:"
+                ]
+            },
+            "help": "Ban someone -> $ban @member <reason>"
+        },
+        "cat": {
+            "embeds": {
+                "titles": [
+                    "Kitty 😻"
+                ]
+            },
+            "help": "Send random cat image :3"
+        },
+        "check": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "no_member": "mention someone",
+                "no_warns": "member have no warns"
+            },
+            "embeds": {
+                "titles": [
+                    "Warns of "
+                ],
+                "footers": [
+                    "You didn't set size of warns necessary to give ban",
+                    "For ban "
+                ]
+            },
+            "help": "Check someone's warns"
+        },
+        "clear": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "no_args": "enter the number of messages to delete",
+                "range": "avaible range 1-100",
+                "finalResponse": [
+                    "Deleted ",
+                    " messages"
+                ]
+            },
+            "help": "Bulk delete messages (1 -> 100)"
+        },
+        "counting": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "succes": "the counting function has been successfully set on this channel",
+                "error": "an error occured",
+                "off": "the counting function has been successfully turned off on this channel",
+                "next": "Next number:"
+            },
+            "help": "Set counting function on the channel, to disactivate use 2 times"
+        },
+        "dab": {
+            "help": "Send dab-photo with your avatar"
+        },
+        "daily": {
+            "replies": {
+                "createAcc": "Account created, amount **50**<:coin:565840795748401152>",
+                "not_ready": "Daily is not ready, come back in: "
+            },
+            "embeds": {
+                "titles": [
+                    "Account of"
+                ],
+                "fields": [
+                    "Added"
+                ]
+            },
+            "help": "You can add daily 250<:coin:565840795748401152>"
+        },
+        "dankmemes": {
+            "replies": {
+                "start": "succefully activated",
+                "stop": "succefully disactivated",
+                "error": "an error occured",
+                "permission_error": "you do not have permissions to do that!"
+            },
+            "help": "Automatically sends memes from r/dankmemes, to disactivate use 2 times"
+        },
+        "dog": {
+            "embeds": {
+                "titles": [
+                    "🐶 Doggo"
+                ]
+            },
+            "help": "Send random dog image :3"
+        },
+        "fortnite": {
+            "embeds": {
+                "titles": [
+                    "Stats of ",
+                    "Fortnite challenges"
+                ],
+                "fields": [
+                    "Stats of ",
+                    "Score",
+                    "Matches",
+                    "Kills",
+                    "Kills per match",
+                    "K/D",
+                    "Wins",
+                    "Goal:"
+                ]
+            },
+            "replies": {
+                "valid": "valid use `$fortnite stats <nick> | <platform - pc/xbl/psn > | <solo/duo/squad>`",
+                "error": "an error occured"
+            },
+            "help": "You can check fortnite chalenges **->** $fortnite challenges & check someone's stats `$fortnite stats <nick> | <platform - pc/xbl/psn > | <solo/duo/squad>`"
+        },
+        "gif": {
+            "replies": {
+                "cannot_find": "i cannot find this gif :/"
+            },
+            "help": "send gif -> $gif <name>"
+        },
+        "last": {
+            "embeds": {
+                "titles": [
+                    "Last Trit's update"
+                ]
+            },
+            "help": "Show last Trit's update"
+        },
+        "hug": {
+            "embeds": {
+                "titles": [
+                    " hugs "
+                ]
+            },
+            "help": "You can hug someone"
+        },
+        "info": {
+            "embeds": {
+                "inField": {
+                    "bot_info": "I'm a universal **bot** created by Spyte#3976\nCheck my [twitter](https://twitter.com/TritDiscord) for updates ;3 - You can report issues on twitter too",
+                    "members": "members",
+                    "guilds": "guilds"
+                },
+                "titles": [
+                    "Bot info"
+                ],
+                "footers": [
+                    "Date"
+                ],
+                "fields": [
+                    "Who am I",
+                    "Serving",
+                    "Created at",
+                    "Joined to this server",
+                    "Uptime",
+                    "Latest update"
+                ]
+            },
+            "help": "Show info about bot"
+        },
+        "inventory": {
+            "embeds": {
+                "titles": [
+                    "Inventory of "
+                ]
+            },
+            "replies": {
+                "empty": "your inventory is empty!",
+                "cannot_find": "you do not have this item!",
+                "used": "you used",
+                "error": "an error occured",
+                "wrong_number": "wrong number, avaible range **1 -> ",
+                "warning": "**!!!WARNING!!!**\nThis will clear **whole** inventory!",
+                "cleared": "succesfully cleared your inventory",
+                "canceled": "canceled"
+            },
+            "help": "Items you bought from the store -> `use`, `remove`, `<brak>`"
+        },
+        "invite": {
+            "help": "Send bot's invitation link"
+        },
+        "kick": {
+            "embeds": {
+                "descriptions": [
+                    "Kicked ",
+                    " by ",
+                    "\nReason: "
+                ]
+            },
+            "replies": {
+                "no_mention": "mention someone",
+                "no_reason": "give me a reason",
+                "permission_error": "you do not have permissions to do that!",
+                "cannot_kick": "this member is not kickable"
+            },
+            "help": "Kick someone -> $kick @member <reason>"
+        },
+        "kiss": {
+            "help": "Kiss someone"
+        },
+        "lock": {
+            "replies": {
+                "done": "channel has been locked",
+                "error": "an error occured"
+            },
+            "help": "Block sending messages for @everyone on this channel"
+        },
+        "mute": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "no_member": "I can not find this member",
+                "no_time": "determine the time",
+                "done": " has been muted for ",
+                "unmute": " is unmuted!"
+            },
+            "help": "Mute member -> $mute <time>"
+        },
+        "nasa": {
+            "embeds": {
+                "titles": [
+                    ":star: Astronomic picture of this day"
+                ]
+            },
+            "help": "Send Astronomic picture of this day"
+        },
+        "note": {
+            "embeds": {
+                "titles": [
+                    "TYour notes",
+                    "A note from: "
+                ],
+                "fields": [
+                    "If you wanna read a note -> $note read **"
+                ]
+            },
+            "replies": {
+                "proper_use": "proper use: $note create <content>/read <number>",
+                "saved": "succesfully saved your note, If you wanna read it -> $note read",
+                "error": "an error occured while saving",
+                "no_notes": "you do not have any notes (you can create it by: $note create `content`)",
+                "notfound": "I can not find this note"
+            },
+            "help": "Create a note -> $note create <content> / $note read <note's number>"
+        },
+        "pat": {
+            "embeds": {
+                "titles": [
+                    "pats"
+                ]
+            },
+            "help": "Pat someone :3"
+        },
+        "profile": {
+            "replies": "**DOWNLOADING PROFILE INFO**",
+            "help": "Send your profile card"
+        },
+        "punch": {
+            "embeds": {
+                "titles": [
+                    "punched"
+                ]
+            },
+            "help": "Punch someone 👊"
+        },
+        "questionnaire": {
+            "embeds": {
+                "descriptions": [
+                    "**Answers:**\n"
+                ],
+                "titles": [
+                    "Questionnaire"
+                ]
+            },
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "proper_use": "proper use: \n$questionnaire <channel> <questions> | <answers separated by ` | `>"
+            },
+            "help": "Create questionnaire -> \n$questionnaire <channel> <questions> | <answers separated by ` | `>"
+        },
+        "roleMenu": {
+            "embeds": {
+                "titles": [
+                    "Roles list"
+                ],
+                "fields": [
+                    "How to give role to yourself",
+                    "If you wanna get a role:\n`$roleMenu get **name**`"
+                ]
+            },
+            "replies": {
+                "setup": "start creating roles list by:\n`$roleMenu setup @role1 @role2 itd` itd\nIf you want to add a role to existing list: $roleMenu add @role1 @role2\nIf you want to get a role:\n`$roleMenu get **name**`\nTo see roles list: `$roleMenu list`",
+                "permission_error": "you do not have permissions to do that!",
+                "succes": "roles list was successfully set",
+                "add": "succesfully added role to menu",
+                "add_error": "an error occured during writing data to database",
+                "no_name": ":x: Give me a name of role",
+                "cannot_find": "i can not find this role. Did yo give me a proper name?",
+                "removed": "a role was succesfully removed",
+                "remove_error": "an error occured during removing data to database",
+                "no_menu": "this guild do not have a role menu, to create it: `$roleMenu setup @rola1 @rola2` itd",
+                "cannot_remove": "i cannot remove you this role, propably i have no permission  to do that",
+                "remove_your_role": "successfully removed you a role `",
+                "give_role": "successfully gived you a role `",
+                "cannot_give": "i can not give you a role, propably i have no permission  to do that",
+                "gived": "i can not give you a role, propably i have no permission  to do that"
+            },
+            "help": "`$roleMenu setup @role1 @role2 itd` itd\nIf you want to add a role to existing list: $roleMenu add @role1 @role2\nIf you want to get a role:\n`$roleMenu get **name**`\nTo see roles list: `$roleMenu list`"
+        },
+        "google": {
+            "help": "Search in google -> $google <phraze>"
+        },
+        "server": {
+            "embeds": {
+                "fields": [
+                    "Name",
+                    "Owner",
+                    "Region",
+                    "Channels",
+                    "Users",
+                    "Humans",
+                    "Bots",
+                    "Online",
+                    "Roles"
+                ],
+                "footers": [
+                    "Server was created at"
+                ]
+            },
+            "help": "Show info about this server"
+        },
+        "settings": {
+            "embeds": {
+                "help_titles": [
+                    "Warns",
+                    "Logs",
+                    "Embed color",
+                    "Prefix",
+                    "Welcome message",
+                    "Leaving message",
+                    "Auto-role",
+                    "Leveling"
+                ],
+                "help_pages": [
+                    "To change amount of warns needed to ban type: $settings warns <number>",
+                    "You have to use this commad on the channel for logs\nTo turn on/off logs use $logs on/off",
+                    "To set up embed color you have to give me a HEX color\ne.g: $settings color #ff00aa",
+                    "To set up new prefix -> $settings prefix <new prefix>, e.g $settings prefix !, then new prefix is `!`",
+                    "To change (or disable) welcome message -> $settings welcome (off) <message>, use this command on the welcome channel\nIf you wanna mention new person use '/member/'\ne.g.: $settings welcome Welcome /member/",
+                    "To change (or disable) leaving message -> $settings gbmsg (off) <message>, use this command on the leaving channel\nIf you wanna mention person use '/member/'\ne.g.: $settings gbmsg See you soon /member/",
+                    "To set auto role -> $settings role @role\n`Trit` role have to be highier than @role",
+                    "To enable/disable leveling -> $settings leveling on/off"
+                ],
+                "descriptions": [
+                    "For further help -> $settings help"
+                ],
+                "titles": [
+                    "Settings",
+                    "Additional informations"
+                ],
+                "fields": [
+                    "Embed color",
+                    "Prefix",
+                    "Auto role",
+                    "amount of arns needed to ban",
+                    "Leveling",
+                    "Greeting message",
+                    "Leaving message",
+                    "Leaving message [content]",
+                    "Greeting message channel",
+                    "Leaving message channel",
+                    "Greeting message [content]",
+                    "Logs",
+                    "Logs channel"
+                ]
+            },
+            "replies": {
+                "warns": "amount of warns needed to ban: `",
+                "logs_on": "enabled logs on this channel",
+                "logs_off": "disabled logs",
+                "leveling_on": "enbled leveling",
+                "leveling_off": "disabled leveling",
+                "wmsg_on": "enabled greeting message",
+                "wmsg_off": "disabled greeting messages",
+                "gbmsg_on": "enabled leaving message",
+                "gbmsg_off": "disabled leaving message",
+                "wrole": "auto role is now: `",
+                "prefix": "new prefix is now: `",
+                "embed_color": "new embed color is now: `"
+            },
+            "help": "Bot settings on this server"
+        },
+        "someone": {
+            "help": "Mention random member"
+        },
+        "status": {
+            "channels": ["Date", "Members", "Online", "Highcore", "Last member", "-Nobody has joined yet-"],
+            "embeds": {
+                "titles": ["Statistics"],
+                "descriptions": ["Channels' names"],
+                "fields": ["In case you want to change channels' name", "Use commands $status customize ` < 1 - 5 > < new name > `"]
+            },
+            "replies": {
+                "isNaN": "you have to specific number of channel first",
+                "range": "you have to specify a number in range `<1-5>`",
+                "no_name": "you have to specify new channel name",
+                "success": "successfully changed channel's name"
+            },
+            "help": "Statisctics of your guild - voice channels\n`$status customize` in case you want to change channels' name"
+        },
+        "store": {
+            "embeds": {
+                "titles": [
+                    "Server store"
+                ]
+            },
+            "replies": {
+                "no_store": "this server have no store",
+                "permission_error": "you do not have permissions to do that!",
+                "price_NaN": "price must be a number",
+                "proper_use_add": "To add items to store: `$store add item | price` you can add role too -> `$store add @role | price`",
+                "error": "an error occures ```",
+                "added": [
+                    "added",
+                    "for"
+                ],
+                "to_buy": "if you want to buy some items `$store buy item_name` *or* `$store buy number_on_list`",
+                "notfound": "i can not find this item",
+                "no_credits": "you do not have the required amount of money",
+                "bought": "succesfully bought **",
+                "range": "you gave me a wrong number, **avaible range:** 1 -> ",
+                "warning": "**!!!WARNING!!!**\nThis command will clear your store, continue?",
+                "cleared": "the store was succesfully removed",
+                "canceled": "canceled ✅",
+                "no_args": "to remove item from the store `$store remove item_name` *or* `$store remove number_on_list`",
+                "deleted": "succesfully removed **"
+            },
+            "help": "Server store, options: <no option>/add/buy/clear/remove"
+        },
+        "stream": {
+            "embeds": {
+                "titles": [
+                    "Avaible stations"
+                ],
+                "fields": [
+                    "Manual",
+                    "`$stream openfm` <full station's name>`\nTo stop broadcast: `$leave` **on this channel**"
+                ]
+            },
+            "replies": {
+                "no_channel": ":x: you must be connected to the voice channel",
+                "no_proper_name": "give me a proper name",
+                "turned_on": "turned on radio\nTo stop broadcast`$leave` **on this channel**",
+                "error": "błąd: ```"
+            },
+            "help": "If you wanna listen openfm music `$stream openfm <full station's name>`\nBut if you have your own link you can use it too -> $stream custom <link>"
+        },
+        "top": {
+            "embeds": {
+                "titles": [
+                    "Server top 10 "
+                ],
+                "footers": [
+                    "Your positon"
+                ]
+            },
+            "help": "Top-list"
+        },
+        "top-month": {
+            "embeds": {
+                "titles": [
+                    "Server monthly top 10 "
+                ],
+                "footers": [
+                    "Your positon"
+                ]
+            },
+            "help": "Monthly top-list"
+        },
+        "unlock": {
+            "replies": {
+                "success": "channel is now unlocked"
+            },
+            "help": "Unlock a channel"
+        },
+        "verification": {
+            "embeds": {
+                "titles": [
+                    "Verification Menu"
+                ],
+                "fields": [
+                    "List of roles"
+                ],
+                "descriptions": [
+                    "Hi 👋, if you are new server member you have to verify you are human\nType: `verify`"
+                ]
+            },
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "error": "an error occured ",
+                "success": "succesfully set up the verification, don't delete a message below!",
+                "disable": "disabled verification",
+                "no_roles": "proper use: `$verification create @role`"
+            },
+            "help": "$verification create @role\n**NEW** you can use reaction based verification [BETA]. To activate: $verification reaction @role."
+        },
+        "warn": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "no_member": "give me a member and reason",
+                "no_reason": "give me a reason!",
+                "forBan": "remember about set up amount of warns needed to ban `$settings warns <number>`",
+                "warned": "succesfully warned **",
+                "banned": "succesfully banned ",
+                "cannot_ban": "an error occured while bannig "
+            },
+            "help": "Warn someone"
+        },
+        "weather": {
+            "embeds": {
+                "titles": [
+                    "Weather in: "
+                ],
+                "footers": [
+                    "Data from: "
+                ],
+                "fields": [
+                    "Feels-like temperature",
+                    "Temperature",
+                    "Humidity",
+                    "Wind speed",
+                    "Timezone"
+                ]
+            },
+            "replies": {
+                "error": "an error occured while downloading data"
+            },
+            "help": "Show current weather in mentioned city"
+        },
+        "who_host": {
+            "replies": {
+                "error": "error - unproper URL"
+            },
+            "embeds": {
+                "titles": [
+                    "Info about site"
+                ],
+                "fields": [
+                    "Message",
+                    "IP",
+                    "Site hosting by"
+                ]
+            },
+            "help": "Informacje o tym przez jaki serwer jest hostowan dana strona -> $who_host <link>"
+        },
+        "badword": {
+            "embeds": {
+                "titles": [
+                    "List of banned words"
+                ],
+                "footers": [
+                    "To disable filter -> $badword disable"
+                ]
+            },
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "proper_use": "give me a bad-words separated with ` | `",
+                "success": "new list of banned words is now set",
+                "canceled": "canceled",
+                "disabled": "disabled filter",
+                "warning": "you have been warned by using bad-word",
+                "reason": "Badword usage"
+            },
+            "help": "$badword <words separated with ` | `>"
+        },
+        "work": {
+            "embeds": {
+                "descriptions": [
+                    "You can't work now!\nJob will be availble on:"
+                ],
+                "fields": [
+                    "As ",
+                    " you earned ",
+                    "Account balance"
+                ]
+            },
+            "help": "You can earn <:coin:565840795748401152>"
+        },
+        "language": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "proper_use": "proper use $language EN/PL",
+                "success_PL": "ustawiono język na polski",
+                "success_EN": "laguage has been set to: **EN**"
+            },
+            "help": "Set bot's language"
+        },
+        "help": {
+            "replies": {
+                "no_command": "invalid command name"
+            },
+            "embeds": {
+                "titles": [
+                    "Info",
+                    "Games",
+                    "Cleverbot",
+                    "Economy",
+                    "Utility commands / 4fun",
+                    "Administrator commands",
+                    "Info commands",
+                    "Music"
+                ],
+                "descriptions": [
+                    "All commands: ",
+                    "\nIf you have any problem join Trit's [help server](https://discord.gg/yfzXY5g)\nCheck out my [twitter](https://twitter.com/TritDiscord) ;3 - you can report issues here too",
+                    "To enable cleverbot create channel named cleverbot",
+                    "Use musichelp command"
+                ]
+            }
+        },
+        "unwarn": {
+            "replies": {
+                "error": "an error occured",
+                "permission_error": "you do not have permissions to do that!",
+                "no_member": "mention someone",
+                "no_args": "give me aa number / count of warn",
+                "notfound": "I can not find this warn",
+                "number_error": "type a correct number",
+                "success": "succesfully removed warn"
+            },
+            "help": "Remove someone's warn -> $unwarn @member <reason>"
+        },
+        "ttt": {
+            "embeds": {
+                "titles": [
+                    "Game instructions",
+                    "Game Over",
+                    "Draw"
+                ],
+                "descriptions": [
+                    "Send field adresses, e.g. b2\nYou can $abort",
+                    "Winner:",
+                    "Draw"
+                ]
+            },
+            "replies": {
+                "no_mention": "mention your enemy",
+                "taken": "this field is taken",
+                "not_proper": "give me a proper addres",
+                "bot": "your enemy can not be a bot"
+            },
+            "help": "Tic tac toe game :), $ttt @enemy"
+        },
+        "blacklist": {
+            "replies": {
+                "error": "an error occured",
+                "permission_error": "you do not have permissions to do that!",
+                "proper_use": "$blacklist list / add <ID> / remove <ID>",
+                "empty": "blacklist is empty",
+                "no_id": "give me proper ID :/",
+                "success": "Added ID to the blacklist",
+                "cannot_find": "your blacklist doesn't include this ID",
+                "success_remove": "successfully removed this ID"
+            },
+            "embeds": {
+                "titles": [
+                    "Blacklist"
+                ]
+            },
+            "help": "member on the blacklist will be automatically kicked from the server - $blacklist list / add <ID> / remove <ID>"
+        },
+        "credits": {
+            "replies": {
+                "your_ballance": "you have",
+                "no_account": "you have no",
+                "no_member": "mention member",
+                "no_credits": "give me amount of <:coin:565840795748401152> to transfer",
+                "tooMuch": "you do not have enough <:coin:565840795748401152>",
+                "success": [":outbox_tray: Transfered ", "<:coin:565840795748401152>"],
+                "succes_add": ["<:plus_emoji:611226047119360028> Added", "to"],
+                "permission_error": "you do not have permissions to do that!"
+            },
+            "help": "$credits <no args> / transfer @member <amount> / add @member <amount>"
+        },
+        "whois": {
+            "embeds": {
+                "titles": [
+                    "Informations about "
+                ],
+                "fields": [
+                    "Created at",
+                    "Joined at",
+                    "Roles",
+                    "Permissions",
+                    "About",
+                    "Level"
+                ]
+            },
+            "replies": {
+                "error": "an error occured",
+                "success": "succesfully set the info",
+                "noInfo": "-null-\nTry `$whois set <some text>`"
+            },
+            "help": "show info about member / your account -> $whois optional => @member, `permissions - if you fanna see somebody's permissions`, `set - if you wanna set info about yourself`"
+        },
+        "propositions": {
+            "embeds": {
+                "titles": [
+                    "An idea from "
+                ]
+            },
+            "replies": {
+                "successEnable": "now new propositions would be collected on this channel",
+                "successDisable": "turned off collecting propositions on this channel",
+                "noPermissions": "(propably) i have no permissions to send messages to the propositions channel",
+                "permissionError": "you don't have permissions to do that"
+            },
+            "help": "You can collect ideas to your server easily, create new channel and use $propositions command"
+        },
+        "anon": {
+            "embeds": {
+                "titles": [
+                    "New message"
+                ]
+            },
+            "replies": {
+                "successEnable": "now new messages would be collected on this channel",
+                "successDisable": "turned off collecting messages on this channel",
+                "noPermissions": "(propably) i have no permissions to send messages to the anonymous-channel",
+                "permissionError": "you don't have permissions to do that"
+            },
+            "help": "You can collect messages, original message would be deleted, then bot should send content of this messages (without giving an author)"
+        },
+        "antiRaid": {
+            "replies": {
+                "enable": "enabled anti-raid",
+                "disable": "disabled anti-raid",
+                "permission_error": "you do not have permissions to do that!",
+                "enableMessage": "enabled spam-detection module",
+                "enableInvite": "enabled invite-detection module",
+                "disableMessage": "disabled spam-detection module",
+                "disableInvite": "disabled invite-detection module",
+                "noId": "this channel isn't on list",
+                "channelAdded": "now anti-raid will ignore this channel",
+                "channelRemoved": "now anti-raid works on this channel"
+            },
+            "embeds": {
+                "titles": [
+                    "Anti raid - Configuration",
+                    "Aby skonfigurować..."
+                ],
+                "fields": [
+                    "Anti Raid (main module)",
+                    "Anti-spam module",
+                    "Anti-invite module",
+                    "State",
+                    "Disabled channels"
+                ],
+                "descriptions": [
+                    "**To configure anti-raid modules:**\n > $antiRaid configure spamModule on/off\n > $antiRaid configure inviteModule on/off\n**If you want anti-raid to ignore some channels:**\n> $antiRaid configure ignoredChannels add #channel"
+                ]
+            },
+            "help": "If you want to enable / disable whole module, $antiraid <no args> / To check state of modules: $antiRaid configure"
+        },
+        "command": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "no_commandName": "specify a name of a command",
+                "no_command": "invalid command name",
+                "enable": "enabled command",
+                "disable": "disabled command",
+                "disabled": "command is disabled"
+            },
+            "help": "you can enable or disable specified command, $command enable/disable <command_name>"
+        },
+        "voiceDetect": {
+            "replies": {
+                "permission_error": "you do not have permissions to do that!",
+                "enabled": "enabled voiceChannel detection",
+                "disabled": "disabled voiceChannel detection"
+            },
+            "help": "bot detects when someone joins voice channel and then it will give a special role to that member"
+        },
+        "responses": {
+            "replies": {
+                "succes_on": "pomyślnie włączono reakcje na wiadomości",
+                "succes_off": "pomyślnie wyłączono reakcje na wiadomości"
+            },
+            "help": "**[ONLY POLISH]**"
+        },
+        "achievement": {
+            "reply": "text cannot contains special letters",
+            "help": "Send an minecraft achievement with your text"
+        },
+        "genmeme": {
+            "replies": {
+                "no_text": "you didn't specify text `|` -> `top_text| bottom_text`"
+            },
+            "help": "Generate meme with discord avatar -> $genmeme @member top_text| bottom_text"
+        }
+    },
+    "responses": [
+        "yes",
+        "no",
+        "meybe",
+        "god no!",
+        "idk",
+        "are you kidding me right now"
+    ],
+    "jobs": [
+        "ghost hunter",
+        "legal bank robber",
+        "chocolate tester",
+        "teen exorcist",
+        "toilet sniffer",
+        "ninja"
+    ],
+    "payment": [
+        "85",
+        "70",
+        "50",
+        "90",
+        "78",
+        "99"
+    ]
+}

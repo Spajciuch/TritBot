@@ -1,0 +1,72 @@
+const Discord = require("discord.js");
+const firebase = require("firebase")
+  const database =firebase.database()
+module.exports.run = async (client, message, args, embed_color) => {
+if(args[0]){
+  const firebase = require("firebase")
+  const database = firebase.database()
+  database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(async prefix => {
+
+    let use = client.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => '\ ' + cmd.help.use + '\ ')
+    use = use.toString()
+  let embed = new Discord.RichEmbed()
+  .setAuthor("Informacje o komendzie", "https://cdn.discordapp.com/attachments/566193814591635457/568421808336928781/info_emoji.png")
+  .addField("Użycie",use.replace("$",prefix.val()))
+  .addField("Opis komendy",client.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => '\ ' + cmd.help.description + '\ '))
+  .setColor(embed_color)
+    message.channel.send({embed})
+})
+  } else {
+    database.ref(`/settings/${message.guild.id}/prefix`).once("value")
+.then(async prefix => {
+  let titles = ["Podstawowe informacje", "Cleverbot", "Ekonomia", "Ekonomia - opis", "Gry", "Komendy administracyjne", "Komendy użytkowe / 4fun", "Komendy informacyjne", "Komendy muzyczne"]
+  let pics = ["https://cdn.discordapp.com/attachments/566193814591635457/568421808336928781/info_emoji.png", "https://cdn.discordapp.com/attachments/565189397000224779/569822027834458112/clever_emoji.png", "https://cdn.discordapp.com/attachments/566193814591635457/568421728435568650/coin_emoji.png","https://cdn.discordapp.com/attachments/566193814591635457/568421728435568650/coin_emoji.png", "https://cdn.discordapp.com/attachments/566193814591635457/568421727772737546/game_emoji.png", "https://cdn.discordapp.com/attachments/566193814591635457/568421717140045825/admin_emoji.png", "https://cdn.discordapp.com/attachments/566193814591635457/568421723091763200/user_emoji.png", "https://cdn.discordapp.com/attachments/566193814591635457/568421808336928781/info_emoji.png", "https://cdn.discordapp.com/attachments/566193814591635457/568421720004886534/music_emoji.png"]
+  let pages = [`**Prefix: ${prefix.val()}**\nAby uzykać informacje o komendzie: ${prefix.val()}help <nazwa komendy>\nLiczba wszystkich komend: ${client.commands.size}\n[Zaproś bota na serwer](https://discordapp.com/api/oauth2/authorize?client_id=564837787463843840&permissions=8&scope=bot)`, "Aby aktywować cleverbota utwórz kanał #cleverbot",client.commands.filter(cmd => cmd.help.category === 'economy').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"), "Aby stworzyć sklep: $store init <Przedmiot> | <cena>\nAby dodać coś do istniejącego sklepu $storeadd <przedmiot> | <<cena>>\nAby coś kupić $store buy <numer na liście>\nAby założyć konto użyj komendy daily\nAby sprawdzić kupione przedmioty: $inventory\nAby użyć przedmiotu: $inventory use <numer na liściez>\nAby wyczyścić inventory: $inventory clear", 'ttt <osoba> - kółko i krzyżyk' ,client.commands.filter(cmd => cmd.help.category === 'admin').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"),client.commands.filter(cmd => cmd.help.category === 'util').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"),client.commands.filter(cmd => cmd.help.category === 'info').map(cmd => '\ ' + cmd.help.name + '\ ').join("\n"), "Użyj komendy `musichelp`"]; 
+  let page = 1;
+
+  const embed = new Discord.RichEmbed()
+    .setAuthor(titles[page-1], pics[page-1])
+    .setColor(embed_color)
+    .setFooter(`Strona ${page} z ${pages.length}`)
+    .setDescription(pages[page-1])
+
+  message.author.send(embed).then(msg => {
+
+      msg.react('⏪').then( r => {
+      msg.react('⏩')
+
+      const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+      const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id;
+
+      const backwards = msg.createReactionCollector(backwardsFilter);
+      const forwards = msg.createReactionCollector(forwardsFilter);
+
+
+      backwards.on('collect', r => {
+        r.remove(message.author)
+        if (page == 1) return;
+        page--;
+        embed.setDescription(pages[page-1]);
+        embed.setFooter(`Strona ${page} z ${pages.length}`);
+        embed.setAuthor(titles[page-1], pics[page-1])
+        msg.edit(embed)
+      })
+
+      forwards.on('collect', r => {
+        r.remove(message.author)
+        if (page == pages.length) return;
+        page++;
+        embed.setDescription(pages[page-1]);
+        embed.setFooter(`Strona ${page} z ${pages.length}`);
+        embed.setAuthor(titles[page-1], pics[page-1])
+        msg.edit(embed)
+      })
+
+    })
+})
+  })
+}
+}
+module.exports.help = {
+  name: "help"
+}

@@ -1,0 +1,65 @@
+var Discord = require("discord.js")
+const snekfetch = require("snekfetch")
+module.exports.run = async (client, message, args, embed_color) => {
+  var firebase = require("firebase")
+  var database = firebase.database()
+    database.ref(`/users/${message.guild.id}/${message.author.id}/mesagesCount`).once('value')
+      .then(async messagesCount => {
+        database.ref(`/users/${message.guild.id}/${message.author.id}/level`).once('value')
+          .then(async level => {
+            database.ref(`/economy/${message.guild.id}/${message.author.id}/bucks`).once("value")
+              .then(async bucks => {
+                database.ref(`/user_settings/${message.author.id}/background`).once("value")
+                 .then(async background => {
+
+    var { createCanvas, loadImage } = require('canvas')
+    var CanvasTextWrapper = require('canvas-text-wrapper').CanvasTextWrapper;
+    var canvas = createCanvas(1000, 1100)
+    var ctx = canvas.getContext('2d')
+    const { body: buffer } = await snekfetch.get(message.author.displayAvatarURL);
+    const avt = await loadImage(buffer);
+    ctx.drawImage(avt, 80, 40, 400, 400);
+    const bkg = await loadImage("./photos/templates/" + background.val() + ".png")
+    ctx.drawImage(bkg, 0, 0, 1000, 1100)
+    
+    
+    ctx.font = `55px "Comic Sans MS"`
+    ctx.fillStyle="#ffffff";
+    ctx.textAlign="center";
+    ctx.lineWidth = 5
+    ctx.strokeText(message.author.username, 309, 565)
+    ctx.fillText(message.author.username, 309, 565)
+
+    ctx.font = `65px "Autour One"`
+    ctx.fillStyle="#ffffff";
+    ctx.lineWidth = 3
+    ctx.fillText(bucks.val(), 665, 345)
+    ctx.strokeText(bucks.val(), 665, 345)
+    ctx.lineWidth = 5
+    ctx.strokeText(messagesCount.val(), 665, 540)
+    ctx.fillText(messagesCount.val(), 665, 540)
+    ctx.lineWidth = 3
+    ctx.font = `75px "Autour One"`
+    ctx.fillText(level.val(), 723, 165)
+    ctx.strokeText(level.val(), 723, 165)
+
+    ctx.textAlign="left";
+    let string = ["AAA", "BBB", "CCC", "DDD", "EEE"]
+    
+    for(i=0; i <= 4; i++){
+      database.ref(`/xd/haha`).once("value")
+        .then()
+      ctx.fillText(string[i], 154, 730 + i*70)
+      ctx.strokeText(string[i], 154, 730 + i*70)
+    }
+
+    const attachment = new Discord.Attachment(canvas.toBuffer(), 'profile.png');
+    message.channel.send(attachment)
+  })})})})
+}
+module.exports.help = {
+	name: "profile",
+	category:"info",
+  description:"Pokazuje inormacje o profilu",
+  use:"$profile <osoba> (pocjonalnie)"
+}

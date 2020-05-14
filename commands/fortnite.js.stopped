@@ -1,0 +1,47 @@
+const Discord = require("discord.js")
+const config = require(`../config.json`)
+const Client = require('fortnite')
+const chalk = require("chalk")
+module.exports.run = async (client, message, args, embed_color, lang) => {
+    const fortnite = new Client(config.fortnite_key);
+    if (args[0] == "stats") {
+        const username = args.join(" ").split(" | ")[0].replace("stats ", "")
+        const platform = args.join(" ").split(" | ")[1].replace("stats ", "")
+        const mode = args.join(" ").split(" | ")[2].replace("stats ", "")
+        fortnite.user(username, platform).then(user => {
+                const data = user.stats[mode]
+
+                let embed = new Discord.MessageEmbed()
+                    .setColor(embed_color)
+                    .setTitle(lang.commands.fortnite.embeds.titles[0] + username)
+                    .setURL(user.url)
+                    .addField(lang.commands.fortnite.embeds.fields[0], data.score, true)
+                    .addField(lang.commands.fortnite.embeds.fields[1], data.matches, true)
+                    .addField(lang.commands.fortnite.embeds.fields[2], data.kills, true)
+                    .addField(lang.commands.fortnite.embeds.fields[3], data.kills_per_match, true)
+                    .addField(lang.commands.fortnite.embeds.fields[4], data.kd, true)
+                    .addField(lang.commands.fortnite.embeds.fields[5], data.wins, true)
+                    .setTimestamp()
+                message.channel.send(embed)
+            })
+            .catch(err => {
+                message.reply(lang.commands.fortnite.responses.valid)
+                console.log(chalk.red("[error] " + err))
+            })
+    } else if (args[0] == "challenges") {
+        let embed = new Discord.MessageEmbed()
+            .setColor(embed_color)
+            .setTimestamp()
+            .setTitle(lang.commands.fortnite.embeds.titles[1])
+        fortnite.challenges().then(challenges => {
+            challenges.forEach(challenge => {
+                embed.addField(challenge.name, `${lang.commands.fortnite.embeds.fields[6]} ${challenge.quests_total}`)
+            });
+            message.channel.send(embed)
+        })
+    }
+}
+module.exports.help = {
+    name: "fortnite",
+    category: "info"
+}
