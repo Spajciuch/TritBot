@@ -1,0 +1,90 @@
+var Discord = require("discord.js")
+var config = require(`../config.json`)
+module.exports.run = async (client, message, args, embed_color) => {
+    if (args[0]) {
+        let embed = new Discord.RichEmbed()
+            .setAuthor("Informacje o komendzie")
+            .addField("Użycie", client.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => '\ ' + cmd.help.use + '\ '))
+            .addField("Opis komendy", client.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => '\ ' + cmd.help.description + '\ '))
+            .setColor(embed_color)
+        message.author.send({
+            embed
+        })
+    } else {
+        message.reply("wiadomości wysłane na PW :)").then(msg => {
+            msg.delete(2000)
+        })
+
+        let info = new Discord.RichEmbed()
+            .setAuthor("Informacje", "https://cdn.discordapp.com/attachments/565189397000224779/565948215162175508/info_emoji.png")
+            .setDescription(`**Prefix: ${config.prefix}**\nAby uzykać informacje o komendzie: ${config.prefix}help <nazwa komendy>\nLiczba wszystkich komend: ${client.commands.size}\nJeśli masz jakiekolwiek problemy wbij na [serwer pomocy](https://discord.gg/yfzXY5g)`)
+            .addField("WebDashboard", "https://tritbot.glitch.me")
+            .setColor(embed_color)
+        message.author.send(info)
+        let cleverbot = new Discord.RichEmbed()
+            .setColor(embed_color)
+            .setAuthor("Cleverbot", "https://cdn.discordapp.com/attachments/565189397000224779/569822027834458112/clever_emoji.png")
+            .setDescription("Aby włączyć cleverbota na swoim serwerze utwórz kanał `#cleverbot`")
+        message.author.send(cleverbot)
+        let economy = new Discord.RichEmbed()
+            .setAuthor("Ekonomia", "https://cdn.discordapp.com/attachments/565189397000224779/565948591638577173/coin_emoji.png")
+            .setColor(embed_color)
+        const economyRawString = "[" + client.commands.filter(cmd => cmd.help.category === 'economy').map(cmd => '"' + cmd.help.name + '"').join(", ") + "]"
+        const economyCommandsArray = JSON.parse(economyRawString)
+        let economyDescription = ""
+        for (var i = 0; i <= economyCommandsArray.length - 1; i++) {
+            economyDescription += "**" + economyCommandsArray[i] + "**" + " - " + client.commands.filter(cmd => cmd.help.name === economyCommandsArray[i]).map(cmd => cmd.help.description) + "\n"
+        }
+        economy.setDescription(economyDescription)
+        // economy.addField("Objaśnienie", `Aby stworzyć sklep: <prefix>store init <Przedmiot> | <cena>\nAby dodać coś do istniejącego sklepu <prefix>storeadd <przedmiot> | <<cena>>\nAby coś kupić <prefix>store buy <numer na liście>\nAby założyć konto użyj komendy daily\nAby sprawdzić stan konta: <prefix>account\nAby sprawdzić kupione przedmioty: <prefix>inventory\nAby użyć przedmiotu: <prefix>inventory use <numer na liściez>\nAby wyczyścić inventory: <prefix>inventory clear\nOgólnie to na razie jest beta, w planach jest komenda work itp.`)
+        message.author.send(economy)
+
+        let util = new Discord.RichEmbed()
+            .setAuthor("Komendy użytkowe/4fun", "https://cdn.discordapp.com/attachments/566193814591635457/568421723091763200/user_emoji.png")
+            .setColor(embed_color)
+        const utilRawString = "[" + client.commands.filter(cmd => cmd.help.category === 'util').map(cmd => '"' + cmd.help.name + '"').join(", ") + "]"
+        const utilCommandsArray = JSON.parse(utilRawString)
+        let utilDescription = ""
+        for (var i = 0; i <= utilCommandsArray.length - 1; i++) {
+            utilDescription += "**" + utilCommandsArray[i] + "**" + " - " + client.commands.filter(cmd => cmd.help.name === utilCommandsArray[i]).map(cmd => cmd.help.description) + "\n"
+        }
+        util.setDescription(utilDescription)
+        message.author.send(util)
+
+        let admin = new Discord.RichEmbed()
+            .setAuthor("Komendy administracyjne", "https://cdn.discordapp.com/attachments/566193814591635457/568421717140045825/admin_emoji.png")
+            .setColor(embed_color)
+        const adminRawString = "[" + client.commands.filter(cmd => cmd.help.category === 'admin').map(cmd => '"' + cmd.help.name + '"').join(", ") + "]"
+        const adminCommandsArray = JSON.parse(adminRawString)
+        let adminDescription = ""
+        for (var i = 0; i <= adminCommandsArray.length - 1; i++) {
+            adminDescription += "**" + adminCommandsArray[i] + "**" + " - " + client.commands.filter(cmd => cmd.help.name === adminCommandsArray[i]).map(cmd => cmd.help.description) + "\n"
+        }
+        admin.setDescription(adminDescription)
+        message.author.send(admin)
+
+        let infocmds = new Discord.RichEmbed()
+            .setAuthor("Komendy informacyjne", "https://cdn.discordapp.com/attachments/565189397000224779/565948215162175508/info_emoji.png")
+            .setColor(embed_color)
+        const infoRawString = "[" + client.commands.filter(cmd => cmd.help.category === 'info').map(cmd => '"' + cmd.help.name + '"').join(", ") + "]"
+        const infoCommandsArray = JSON.parse(infoRawString)
+        let infoDescription = ""
+        for (var i = 0; i <= infoCommandsArray.length - 1; i++) {
+            infoDescription += "**" + infoCommandsArray[i] + "**" + " - " + client.commands.filter(cmd => cmd.help.name === infoCommandsArray[i]).map(cmd => cmd.help.description) + "\n"
+        }
+        infocmds.setDescription(infoDescription)
+        message.author.send(infocmds)
+
+        let music = new Discord.RichEmbed()
+            .setAuthor("Komendy muzyczne", "https://cdn.discordapp.com/attachments/566193814591635457/568421720004886534/music_emoji.png")
+            .setColor(embed_color)
+            .setDescription("Użyj komendy musichelp")
+        message.author.send(music)
+
+    }
+}
+module.exports.help = {
+    name: "help"
+}
+
+module.exports.aliases = ["pomoc"]

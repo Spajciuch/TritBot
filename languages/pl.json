@@ -533,9 +533,11 @@
                 "cleared": "pomyślnie usunięto sklep",
                 "canceled": "anulowano ✅",
                 "no_args": "aby usunąć którąś pozycję ze sklepu `$store remove nazwa_itemku` *lub* `$store remove numer_na_liscie`",
-                "deleted": "pomyślnie usunięto **"
+                "deleted": "pomyślnie usunięto **",
+                "no_item": "wybierz pozycję w sklepie w zakresie:",
+                "success_edit": "pomyślnie zedytowano"
             },
-            "help": "Sklepik serwerowy, opcje: <brak>/add/buy/clear/remove"
+            "help": "Sklepik serwerowy, opcje: <brak>/add/buy/clear/remove/edit"
         },
         "stream": {
             "embeds": {
@@ -775,13 +777,17 @@
         "credits": {
             "replies": {
                 "your_ballance": "twój stan konta wynosi",
+                "ballance": "stan konta tej osoby wynosi",
                 "no_account": "nie masz żadnych",
+                "no_account_M": "osoba nie ma żadnych",
                 "no_member": "oznacz osobę",
-                "no_credits": "podaj liczbę <:coin:565840795748401152> do przelania",
+                "no_credits": "podaj liczbę <:coin:565840795748401152>",
                 "tooMuch": "nie masz tyle <:coin:565840795748401152>",
                 "success": [":outbox_tray: Pomyślnie przelano ", "<:coin:565840795748401152>"],
                 "success_add": ["<:plus_emoji:611226047119360028> Dodano", "użytkownikowi"],
-                "permission_error": "nie masz uprawnień"
+                "permission_error": "nie masz uprawnień",
+                "success_operation": "pomyślnie wykonano operację",
+                "error": "wystąpił nieoczekiwany błąd"
             },
             "help": "$credits <bez argumentów> / transfer @osoba <kwota> / add @osoba <kwota>"
         },

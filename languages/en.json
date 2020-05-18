@@ -533,9 +533,10 @@
                 "cleared": "the store was succesfully removed",
                 "canceled": "canceled ✅",
                 "no_args": "to remove item from the store `$store remove item_name` *or* `$store remove number_on_list`",
-                "deleted": "succesfully removed **"
+                "deleted": "succesfully removed **",
+                "success_edit": "successfully edited"
             },
-            "help": "Server store, options: <no option>/add/buy/clear/remove"
+            "help": "Server store, options: <no option>/add/buy/clear/remove/edit"
         },
         "stream": {
             "embeds": {
@@ -772,13 +773,17 @@
         "credits": {
             "replies": {
                 "your_ballance": "you have",
+                "ballance": "this person has",
                 "no_account": "you have no",
+                "no_account_M": "this person has no ",
                 "no_member": "mention member",
                 "no_credits": "give me amount of <:coin:565840795748401152> to transfer",
                 "tooMuch": "you do not have enough <:coin:565840795748401152>",
                 "success": [":outbox_tray: Transfered ", "<:coin:565840795748401152>"],
                 "succes_add": ["<:plus_emoji:611226047119360028> Added", "to"],
-                "permission_error": "you do not have permissions to do that!"
+                "permission_error": "you do not have permissions to do that!",
+                "success_operation": "operation has been successfully performed",
+                "error": "unexpected error occured"
             },
             "help": "$credits <no args> / transfer @member <amount> / add @member <amount>"
         },
