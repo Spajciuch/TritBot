@@ -7,7 +7,9 @@ const {
 module.exports.run = async (client, message, args, embed_color, lang) => {
 	let mm = message.mentions.members.first()
 
-	if (!args[0] || mm) {
+	console.log(args)
+
+	if (!args[0] || args[0] == `<@${mm.id}>` || args[0] == `<@!${mm.id}>`) {
 		if (!mm) {
 			database().ref(`/economy/${message.guild.id}/${message.author.id}`).once("value").then(data => {
 				const account = data.val()
@@ -107,7 +109,7 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 					})
 					.then(() => {
 						let reply = lang.commands.credits.replies.success_add
-						message.reply(lang.commands.credits.replies.success_add[0] + " " + credits + " <:coin:565840795748401152> " + lang.commands.credits.replies.success_add[1] + " " + member)
+						message.reply(lang.commands.credits.replies.success_add[0] + " " + credits + " <:coin:565840795748401152> " + lang.commands.credits.replies.success_add[1] + " " + `${member}`)
 					})
 					.catch(err => {
 						console.log(chalk.red(`[error] ${err}`))
