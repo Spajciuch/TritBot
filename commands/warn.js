@@ -2,10 +2,19 @@ const Discord = require("discord.js")
 const config = require(`../config.json`)
 module.exports.run = async (client, message, args, embed_color, lang) => {
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply(lang.commands.warn.replies.permission_error)
-    const member = message.mentions.members.first()
+    
+    let member = message.mentions.members.first()
+    
+    if(!member) member = message.guild.members.cache.get(args[0])
+    if (!member && !args[0]) return message.reply(lang.commands.warn.replies.no_member)
+
     const user = member.user
-    if (!user) return message.reply(lang.commands.warn.replies.no_member)
-    const newReason = args.join(" ").slice(22)
+
+    let newReason //
+
+    if(message.mentions.members.first()) newReason = args.join(" ").slice(22)
+    else newReason = args.join(" ").slice(19)
+
     if (!newReason) return message.reply(lang.commands.warn.replies.no_reason)
 
     const database = require("firebase").database()
