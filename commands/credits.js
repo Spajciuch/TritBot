@@ -7,8 +7,6 @@ const {
 module.exports.run = async (client, message, args, embed_color, lang) => {
 	let mm = message.mentions.members.first()
 
-	console.log(args)
-
 	if (!args[0] || args[0] == `<@${mm.id}>` || args[0] == `<@!${mm.id}>`) {
 		if (!mm) {
 			database().ref(`/economy/${message.guild.id}/${message.author.id}`).once("value").then(data => {
