@@ -247,15 +247,12 @@ function generateSwitches(message) {
 }
 
 client.on("message", message => {
-  database.ref(`/block/block`).once("value").then(d => {
-    if (d.val() == true) block = true
 
-    if (block == true && message.author.id == "545637614036844555") return;
     if (message.channel.type == "dm") return
     if (message.guild.id == "264445053596991498") return
     if (message.channel.id == "587907176467529738") message.react("✅")
 
-    database.ref(`/commands/${message.guild.id}/switches`).once("value").then(sch => {
+
       database.ref(`/settings/${message.guild.id}/embed_color`).once("value").then(ec => {
         database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(pf => {
           database.ref(`/settings/${message.guild.id}/language`).once("value").then(ladb => {
@@ -295,20 +292,17 @@ client.on("message", message => {
               lang = require("./languages/en.json")
             }
             let commandEnabled
-            const switches = sch.val()
 
-            commandEnabled = switches[commandfile.help.name]
+            commandEnabled = true
 
             if (commandfile && commandEnabled) {
               commandfile.run(client, message, args, embed_color, lang)
             } else if (commandEnabled == false) {
               message.reply("<:disable:665227998324326441> " + lang.commands.command.replies.disabled)
             }
-          })
         })
       })
     })
-  })
 })
 
 client.on("guildCreate", guild => {
