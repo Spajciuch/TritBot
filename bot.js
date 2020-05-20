@@ -252,23 +252,15 @@ client.on("message", message => {
     if (message.guild.id == "264445053596991498") return
     if (message.channel.id == "587907176467529738") message.react("✅")
 
-
       database.ref(`/settings/${message.guild.id}/embed_color`).once("value").then(ec => {
         database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(pf => {
           database.ref(`/settings/${message.guild.id}/language`).once("value").then(ladb => {
             const la = ladb.val()
+            
             if (message.author.bot) return
 
             if (message.channel.type == "dm") return
             antiRaid.run(message, client)
-
-            database.ref(`commands/${message.guild.id}/switches/controlPoint`).once("value").then(point => {
-
-
-              if (point.val() != client.commands.size) {
-                if (point.val() !== undefined || point.val() !== null) return generateSwitches(message)
-              }
-            })
             if (la == "PL") reactions.run(client, message)
 
             var embed_color = ec.val()

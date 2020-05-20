@@ -902,6 +902,13 @@
                 "no_text": "you didn't specify text `|` -> `top_text| bottom_text`"
             },
             "help": "Generate meme with discord avatar -> $genmeme @member top_text| bottom_text"
+        },
+        "lyrics": {
+            "error": "Not found!",
+            "embeds": {
+                "titles": ["Lyrics - "],
+                "help": "This command will find you a lyrics of song -> $lyrics <title>"
+            }
         }
     },
     "responses": [

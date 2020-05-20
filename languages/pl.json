@@ -915,6 +915,13 @@
                 "no_text": "podaj tekst mema oddzielając je `|` -> `teks_gora | tekst_dol`"
             },
             "help": "Wygeneruj meme z avatara -> $genmeme @osoba teks_gora | tekst_dol"
+        },
+        "lyrics": {
+            "error": "Nie znaleziono!",
+            "embeds": {
+                "titles": ["Tekst - "],
+                "help": "Wyszukuje tekst podanej piosenki -> $lyrics <tytuł>"
+            }
         }
     },
     "responses": [
