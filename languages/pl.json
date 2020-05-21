@@ -373,6 +373,7 @@
                 ]
             },
             "replies": {
+                "too_much": "podaj maksymalnie 9 odpowiedzi",
                 "permission_error": "nie masz uprawnień",
                 "proper_use": "poprawne użycie: \n$questionnaire <kanał> <pytanie> | <odpowiedzi oddzielane ` | `>"
             },

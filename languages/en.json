@@ -373,6 +373,7 @@
                 ]
             },
             "replies": {
+                "too_much": "type max 9 answers",
                 "permission_error": "you do not have permissions to do that!",
                 "proper_use": "proper use: \n$questionnaire <channel> <questions> | <answers separated by ` | `>"
             },
