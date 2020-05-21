@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 const chalk = require("chalk")
+const moment = require("moment")
 const {
   database
 } = require("firebase")
@@ -24,6 +25,7 @@ module.exports.run = async (client) => {
         .setColor("#59ff00")
         .setTitle(lang.logs.newMember.embeds.titles[0])
         .addField(lang.logs.newMember.embeds.fields[0], member.user.username)
+        .addField(lang.logs.newMember.embeds.fields[1], moment.utc(member.user.createdAt).format("DD.MM.YYYY"))
         .setThumbnail(member.user.displayAvatarURL())
         .setTimestamp()
       channel.send(embed)
