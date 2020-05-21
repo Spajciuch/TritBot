@@ -20,14 +20,12 @@ const moment = require("moment")
 
 var firebase = require('firebase')
 var fireconfig = {
-    apiKey: "AIzaSyCK85kqG_-kKnR0jcWlU9TExiX5QZ74JUE",
-    authDomain: "trit2-eff12.firebaseapp.com",
-    databaseURL: "https://trit2-eff12.firebaseio.com",
-    projectId: "trit2-eff12",
-    storageBucket: "trit2-eff12.appspot.com",
-    messagingSenderId: "874262724144",
-    appId: "1:874262724144:web:c21e79d40b16ea506bf7f5",
-    measurementId: "G-4L0TZNCN08"
+  apiKey: process.env.API,
+  authDomain: `${process.env.ID}.firebaseapp.com`,
+  databaseURL: `https://${process.env.ID}.firebaseio.com`,
+  projectId: process.env.ID,
+  storageBucket: `${process.env.ID}.appspot.com`,
+  messagingSenderId: process.env.SENDER
 };
 // var fireconfig = {
 //     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
@@ -259,6 +257,10 @@ client.on("message", message => {
           database.ref(`/settings/${message.guild.id}/language`).once("value").then(ladb => {
             const la = ladb.val()
             
+            if(message.content.includes(client.user.id)) {
+              message.reply("**prefix: **`" + pf.val() + "`")
+            }
+
             if (message.author.bot) return
 
             if (message.channel.type == "dm") return
