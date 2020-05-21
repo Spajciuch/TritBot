@@ -34,8 +34,18 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 		const gamesCommandsArray = JSON.parse(gamesRawString)
 
 
+		let gamesAliases = []
+
 		for (var i = 0; i <= gamesCommandsArray.length - 1; i++) {
-			gamesDescription += "**" + gamesCommandsArray[i] + "** - " + lang.commands[gamesCommandsArray[i]].help + "\n"
+			if (client.commands.filter(cmd => cmd.help.name == gamesCommandsArray[i]).map(cmd => cmd.aliases)[0]) {
+				gamesAliases[gamesAliases.length] = client.commands.filter(cmd => cmd.help.name == gamesCommandsArray[i]).map(cmd => cmd.aliases)[0]
+			} else {
+				gamesAliases[gamesAliases.length] = ["---"]
+			}
+		}
+
+		for (var i = 0; i <= gamesCommandsArray.length - 1; i++) {
+			gamesDescription += "**" + gamesCommandsArray[i] + "** [" + gamesAliases[i] + "] - " + lang.commands[gamesCommandsArray[i]].help + "\n"
 		}
 
 		let gamesEmbed = new Discord.MessageEmbed()
@@ -44,19 +54,29 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 			.setDescription(gamesDescription)
 
 
-		let cleverbotEmbed = new Discord.MessageEmbed()
-			.setColor(embed_color)
-			.setAuthor(lang.commands.help.embeds.titles[2], "https://cdn.discordapp.com/attachments/565189397000224779/569822027834458112/clever_emoji.png")
-			.setDescription(lang.commands.help.embeds.descriptions[2])
+		// let cleverbotEmbed = new Discord.MessageEmbed()
+		// 	.setColor(embed_color)
+		// 	.setAuthor(lang.commands.help.embeds.titles[2], "https://cdn.discordapp.com/attachments/565189397000224779/569822027834458112/clever_emoji.png")
+		// 	.setDescription(lang.commands.help.embeds.descriptions[2])
 
 
 		let economyDescription = ""
 		const economyRawString = "[" + client.commands.filter(cmd => cmd.help.category === 'economy').map(cmd => '"' + cmd.help.name + '"').join(", ") + "]"
 		const economyCommandsArray = JSON.parse(economyRawString)
 
+		let economyAliases = []
 
 		for (var i = 0; i <= economyCommandsArray.length - 1; i++) {
-			economyDescription += "**" + economyCommandsArray[i] + "** - " + lang.commands[economyCommandsArray[i]].help + "\n"
+			if (client.commands.filter(cmd => cmd.help.name == economyCommandsArray[i]).map(cmd => cmd.aliases)[0]) {
+				economyAliases[economyAliases.length] = client.commands.filter(cmd => cmd.help.name == economyCommandsArray[i]).map(cmd => cmd.aliases)[0]
+			} else {
+				economyAliases[economyAliases.length] = ["---"]
+			}
+		}
+
+		for (var i = 0; i <= economyCommandsArray.length - 1; i++) {
+			// economyDescription += "**" + economyCommandsArray[i] + "** - " + lang.commands[economyCommandsArray[i]].help + "\n"
+			economyDescription += "**" + economyCommandsArray[i] + "** [" + economyAliases[i] + "] - " + lang.commands[economyCommandsArray[i]].help + "\n"
 		}
 
 		let economyEmbed = new Discord.MessageEmbed()
@@ -68,16 +88,35 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 		let utilRawString = "[" + client.commands.filter(cmd => cmd.help.category === 'util').map(cmd => '"' + cmd.help.name + '"').join(", ") + "]"
 		const utilCommandsArray = JSON.parse(utilRawString)
 
+		let aliasesArray = []
+
 		let utilDescription = ""
 
 		for (var i = 0; i <= utilCommandsArray.length - 1; i++, function (err) {
 				console.log(err)
 			}) {
-			// console.log(utilCommandsArray[i])
+			// Kolekcjonowanie aliasów
+			if (client.commands.filter(cmd => cmd.help.name == utilCommandsArray[i]).map(cmd => cmd.aliases)[0]) {
+				aliasesArray[aliasesArray.length] = client.commands.filter(cmd => cmd.help.name == utilCommandsArray[i]).map(cmd => cmd.aliases)[0]
+			} else {
+				aliasesArray[aliasesArray.length] = ["---"]
+			}
+
+		}
+
+		// console.log(aliasesArray)
+
+		for (var i = 0; i <= utilCommandsArray.length - 1; i++, function (err) { // Budowanie reszty opisu komend
+				console.log(err)
+			}) {
+
 			if (lang.commands[utilCommandsArray[i]]) {
-				utilDescription += "**" + utilCommandsArray[i] + "** - " + lang.commands[utilCommandsArray[i]].help + "\n"
+				// console.log(i + " -> " + aliasesArray[i])
+				utilDescription += "**" + utilCommandsArray[i] + "** [" + aliasesArray[i] + "] - " + lang.commands[utilCommandsArray[i]].help + "\n"
 			}
 		}
+
+
 
 		let utilEmbed = new Discord.MessageEmbed()
 			.setColor(embed_color)
@@ -89,11 +128,20 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 		const adminCommandsArray = JSON.parse(adminRawString)
 
 		let adminDescription = ""
+		let adminAliases = []
+
+		for (var i = 0; i <= adminCommandsArray.length - 1; i++) {
+			if (client.commands.filter(cmd => cmd.help.name == adminCommandsArray[i]).map(cmd => cmd.aliases)[0]) {
+				adminAliases[adminAliases.length] = client.commands.filter(cmd => cmd.help.name == adminCommandsArray[i]).map(cmd => cmd.aliases)[0]
+			} else {
+				adminAliases[adminAliases.length] = ["---"]
+			}
+		}
 
 		for (var i = 0; i <= adminCommandsArray.length - 1; i++, function (err) {
 				console.log(err)
 			}) {
-			adminDescription += "**" + adminCommandsArray[i] + "** - " + lang.commands[adminCommandsArray[i]].help + "\n"
+				adminDescription += "**" + adminCommandsArray[i] + "** [" + adminAliases[i] + "] - " + lang.commands[adminCommandsArray[i]].help + "\n"
 		}
 
 		let adminEmbed = new Discord.MessageEmbed()
@@ -106,11 +154,20 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 		const infoCommandsArray = JSON.parse(infoRawString)
 
 		let infoDescription = ""
+		let infoAliases = []
+
+		for (var i = 0; i <= infoCommandsArray.length - 1; i++) {
+			if (client.commands.filter(cmd => cmd.help.name == infoCommandsArray[i]).map(cmd => cmd.aliases)[0]) {
+				infoAliases[infoAliases.length] = client.commands.filter(cmd => cmd.help.name == infoCommandsArray[i]).map(cmd => cmd.aliases)[0]
+			} else {
+				infoAliases[infoAliases.length] = ["---"]
+			}
+		}
 
 		for (var i = 0; i <= infoCommandsArray.length - 1; i++, function (err) {
 				console.log(err)
 			}) {
-			infoDescription += "**" + infoCommandsArray[i] + "** - " + lang.commands[infoCommandsArray[i]].help + "\n"
+				infoDescription += "**" + infoCommandsArray[i] + "** [" + infoAliases[i] + "] - " + lang.commands[infoCommandsArray[i]].help + "\n"
 		}
 
 		let infoEmbed = new Discord.MessageEmbed()
@@ -119,12 +176,14 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 			.setDescription(infoDescription)
 
 
-		let musicEmbed = new Discord.MessageEmbed()
-			.setColor(embed_color)
-			.setAuthor(lang.commands.help.embeds.titles[7], "https://cdn.discordapp.com/attachments/566193814591635457/568421720004886534/music_emoji.png")
-			.setDescription(lang.commands.help.embeds.descriptions[3] || "musichelp");
+		// let musicEmbed = new Discord.MessageEmbed()
+		// 	.setColor(embed_color)
+		// 	.setAuthor(lang.commands.help.embeds.titles[7], "https://cdn.discordapp.com/attachments/566193814591635457/568421720004886534/music_emoji.png")
+		// 	.setDescription(lang.commands.help.embeds.descriptions[3] || "musichelp");
 
 		const embeds = [startEmbed, gamesEmbed, economyEmbed, utilEmbed, adminEmbed, infoEmbed]
+
+		embeds[0].setFooter(`1 / ${embeds.length}`)
 
 		message.channel.send(embeds[0]).then(msg => {
 
@@ -142,6 +201,7 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 					r.users.remove(message.author)
 					if (page == 1) return;
 					page--;
+					embeds[page - 1].setFooter(`${page} / ${embeds.length}`)
 					msg.edit(embeds[page - 1])
 				})
 
@@ -149,6 +209,7 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 					r.users.remove(message.author)
 					if (page == embeds.length) return;
 					page++;
+					embeds[page - 1].setFooter(`${page} / ${embeds.length}`)
 					msg.edit(embeds[page - 1])
 				})
 			})

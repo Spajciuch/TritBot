@@ -72,3 +72,5 @@ module.exports.help = {
     name: "language",
     category: "admin"
 }
+
+module.exports.aliases = ["język"]
