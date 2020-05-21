@@ -247,7 +247,7 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 			let items = store.items
 			let price = store.price
 
-			if(!item || item < 0 || item > items.length -1) return message.reply(replies.no_item + " 1 - " + items.length)
+			if(item == undefined || item < 0 || item > items.length -1) return message.reply(replies.no_item + " 1 - " + items.length)
 			if(isNaN(newPrice)) return message.reply(replies.price_NaN)
 			
 			items[item] = newName
