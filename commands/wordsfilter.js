@@ -121,8 +121,7 @@ module.exports.start = async (client) => {
 
                     database.ref(`/warns/${message.guild.id}/${message.author.id}`).set({
                       "reasons": reasons,
-                      "byList": byList,
-                      "count": count
+                      "byList": byList
                     }).then(() => {
                       let embed = new Discord.MessageEmbed()
                         .setColor("#ff6f00")
@@ -130,7 +129,10 @@ module.exports.start = async (client) => {
                         .addField(lang.logs.warn.embeds.fields[0], message.author.tag, true)
                         .addField(lang.logs.warn.embeds.fields[1], client.user.tag, true)
                         .addField(lang.logs.warn.embeds.fields[2], lang.commands.badword.replies.reasons || "Badword -> `" + rsn + "`")
-                      if (settings.logs == true) {
+                      
+                      if(reasons.length >= settings.forBan) member.ban("TRIT - WARNS")
+
+                        if (settings.logs == true) {
                         const channelId = settings.logschan
                         const channel = message.guild.channels.cache.get(channelId.replace("<@", "").replace(">", ""))
 
