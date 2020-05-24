@@ -4,6 +4,11 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
     const database = require("firebase").database()
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply(lang.commands.check.replies.permission_error)
     let member = message.mentions.members.first()
+
+    if(!message.mentions.members.first()){
+        member = message.guild.members.cache.get(args.join(" "))
+    }
+    
     if (!member) return message.reply(lang.commands.check.replies.no_member)
 
     database.ref(`/settings/${message.guild.id}/forBan`).once("value").then(ban => {
