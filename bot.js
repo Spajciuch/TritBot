@@ -20,14 +20,14 @@ const moment = require("moment")
 
 var firebase = require('firebase')
 var fireconfig = {
-apiKey: "AIzaSyCK85kqG_-kKnR0jcWlU9TExiX5QZ74JUE",
-    authDomain: "trit2-eff12.firebaseapp.com",
-    databaseURL: "https://trit2-eff12.firebaseio.com",
-    projectId: "trit2-eff12",
-    storageBucket: "trit2-eff12.appspot.com",
-    messagingSenderId: "874262724144",
-    appId: "1:874262724144:web:c21e79d40b16ea506bf7f5",
-    measurementId: "G-4L0TZNCN08"
+  apiKey: "AIzaSyCK85kqG_-kKnR0jcWlU9TExiX5QZ74JUE",
+  authDomain: "trit2-eff12.firebaseapp.com",
+  databaseURL: "https://trit2-eff12.firebaseio.com",
+  projectId: "trit2-eff12",
+  storageBucket: "trit2-eff12.appspot.com",
+  messagingSenderId: "874262724144",
+  appId: "1:874262724144:web:c21e79d40b16ea506bf7f5",
+  measurementId: "G-4L0TZNCN08"
 };
 // var fireconfig = {
 //     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
@@ -74,6 +74,7 @@ const anon = require("./listeners/anon.js")
 // const sierociniec = require("./listeners/sierociniec.js")
 const voiceDetector = require("./listeners/voiceDetector.js")
 const autoRole = require("./listeners/autoRole.js")
+const reactionRole = require("./listeners/reactionRole.js")
 
 pool.run(client).then(() => console.log(chalk.blue("[listener] pool.js")))
 logs.run(client).then(() => console.log(chalk.blue("[listener] logs.js")))
@@ -88,6 +89,7 @@ anon.run(client).then(() => console.log(chalk.blue(`[listener] anon.js`)))
 // sierociniec.run(client).then(() => console.log(chalk.blue(`[listener] sierociniec.js`)))
 voiceDetector.run(client).then(() => console.log(chalk.blue(`[listener] voiceDetector.js`)))
 autoRole.run(client).then(() => console.log(chalk.blue(`[listener] autoRole.js`)))
+reactionRole.run(client).then(() => console.log(chalk.blue(`[listeners] reactionRole.js`)))
 
 client.on("ready", async () => {
   const user = client.users.cache.get("367390191721381890")
@@ -250,57 +252,57 @@ function generateSwitches(message) {
 
 client.on("message", message => {
 
-    if (message.channel.type == "dm") return
-    if (message.guild.id == "264445053596991498") return
-    if (message.channel.id == "587907176467529738") message.react("✅")
+  if (message.channel.type == "dm") return
+  if (message.guild.id == "264445053596991498") return
+  if (message.channel.id == "587907176467529738") message.react("✅")
 
-      database.ref(`/settings/${message.guild.id}/embed_color`).once("value").then(ec => {
-        database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(pf => {
-          database.ref(`/settings/${message.guild.id}/language`).once("value").then(ladb => {
-            const la = ladb.val()
-            
-            if(message.content.includes(client.user.id)) {
-              message.reply("**prefix: **`" + pf.val() + "`")
-            }
+  database.ref(`/settings/${message.guild.id}/embed_color`).once("value").then(ec => {
+    database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(pf => {
+      database.ref(`/settings/${message.guild.id}/language`).once("value").then(ladb => {
+        const la = ladb.val()
 
-            if (message.author.bot) return
+        if (message.content.includes(client.user.id)) {
+          message.reply("**prefix: **`" + pf.val() + "`")
+        }
 
-            if (message.channel.type == "dm") return
-            antiRaid.run(message, client)
-            if (la == "PL") reactions.run(client, message)
+        if (message.author.bot) return
 
-            var embed_color = ec.val()
-            let prefix = pf.val()
+        if (message.channel.type == "dm") return
+        antiRaid.run(message, client)
+        if (la == "PL") reactions.run(client, message)
 
-            if (!message.content.startsWith(prefix)) return
+        var embed_color = ec.val()
+        let prefix = pf.val()
 
-            let messageArray = message.content.split(" ")
-            let cmd = messageArray[0]
-            var args = message.content.slice(prefix.length).trim().split(/ +/g)
-            var command = args.shift().toLowerCase()
-            const commandName = cmd.slice(prefix.length)
+        if (!message.content.startsWith(prefix)) return
 
-            let commandfile = client.commands.get(cmd.slice(prefix.length)) ||
-              client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
-            // console.log(commandfile)
-            let lang
-            if (la == "PL") {
-              lang = require("./languages/pl.json")
-            } else {
-              lang = require("./languages/en.json")
-            }
-            let commandEnabled
+        let messageArray = message.content.split(" ")
+        let cmd = messageArray[0]
+        var args = message.content.slice(prefix.length).trim().split(/ +/g)
+        var command = args.shift().toLowerCase()
+        const commandName = cmd.slice(prefix.length)
 
-            commandEnabled = true
+        let commandfile = client.commands.get(cmd.slice(prefix.length)) ||
+          client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
+        // console.log(commandfile)
+        let lang
+        if (la == "PL") {
+          lang = require("./languages/pl.json")
+        } else {
+          lang = require("./languages/en.json")
+        }
+        let commandEnabled
 
-            if (commandfile && commandEnabled) {
-              commandfile.run(client, message, args, embed_color, lang)
-            } else if (commandEnabled == false) {
-              message.reply("<:disable:665227998324326441> " + lang.commands.command.replies.disabled)
-            }
-        })
+        commandEnabled = true
+
+        if (commandfile && commandEnabled) {
+          commandfile.run(client, message, args, embed_color, lang)
+        } else if (commandEnabled == false) {
+          message.reply("<:disable:665227998324326441> " + lang.commands.command.replies.disabled)
+        }
       })
     })
+  })
 })
 
 client.on("guildCreate", guild => {

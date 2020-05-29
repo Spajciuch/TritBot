@@ -911,6 +911,21 @@
                 "titles": ["Lyrics - "],
                 "help": "This command will find you a lyrics of song -> $lyrics <title>"
             }
+        },
+        "reactionRole": {
+            "replies": {
+                "rolesInstrucion": "Now send in sequence roles by mentioning them (e.g: `@role1 @role2`). If you wanna cancel, type `stop`",
+                "noRole": "you have to mention roles, try again or type `stop`",
+                "emojiInstruction": "Now send emojis in the same sequence as roles",
+                "succes": "succesfully set reaction role menu",
+                "duplicates": "you mustn't repeat emojis. Menu hasn't been created",
+                "tooMuch": "you gave too much emojis. Menu hasn't been created",
+                "tooLow": "you gave too little emojis. Menu hasn't been created"
+            },
+            "embeds": {
+                "titles": "Roles Menu",
+                "fields": "Choose some roles from the list below"
+            }
         }
     },
     "responses": [

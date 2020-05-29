@@ -924,6 +924,21 @@
                 "titles": ["Tekst - "],
                 "help": "Wyszukuje tekst podanej piosenki -> $lyrics <tytuł>"
             }
+        },
+        "reactionRole": {
+            "replies": {
+                "rolesInstrucion": "Wyślij po kolei role oznaczając je w następnej wiadomości (przykład: `@rola1 @rola2`). Aby przerwać napisz `stop`",
+                "noRole": "musisz oznaczyc role, spróbuj jeszcze raz",
+                "emojiInstruction": "Wyślij teraz w takiej samej kolejności emoji do każdej roli",
+                "succes": "pomyślnie ustawiono menu ról",
+                "duplicates": "emoji nie mogą się powtarzać. Menu nie zostało stworzone",
+                "tooMuch": "podałeś za dużo emoji. Menu nie zostało stworzone",
+                "tooLow": "podałeś za mało emoji. Menu nie zostało stworzone"
+            },
+            "embeds": {
+                "titles": "Menu ról",
+                "fields": "Wybierz role z listy"
+            }
         }
     },
     "responses": [

@@ -1,24 +1,31 @@
-const Discord = require("discord.js")
 const {
     database
-} = require("firebas")
-module.exports.run = async (client, message, args, embed_color, lang) => {
-    message.channel.send("Zareaguj pod tą wiadomością `❤` aby dostać rolę").then(m => {
-        m.react("❤")
-        const reactionFilter = (reaction, user) => reaction.emoji.name === '❤'
-        const collector = m.createReactionCollector(reactionFilter)
+} = require("firebase")
 
-        collector.on("collect", r => {
-            const users = Array.from(r.users.keys())
-            if (users.length == 1) return
+module.exports.run = async (client) => {
+    client.on('raw', packet => {
+        if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return
 
-            const member = message.guild.members.cache.get(users[users.length - 1])
-            member.addRole("697811665386864690")
+        database().ref(`/reactionRole/${packet.d.guild_id}`).once("value").then(reactionRoleRaw => {
+            if (reactionRoleRaw.val() == null) return 
+            if (packet.d.user_id == client.user.id) return 
+
+            const reactionRole = reactionRoleRaw.val()
+
+            const emojis = reactionRole.emojis
+            const roles = reactionRole.roles
+            const messageId = reactionRole.messageId
+
+            if (messageId !== packet.d.message_id) return 
+
+            const guild = client.guilds.cache.get(packet.d.guild_id)
+            const member = guild.members.cache.get(packet.d.user_id)
+
+            const index = emojis.indexOf(packet.d.emoji.name)
+            if (index < 0) return console.log(4)
+
+            if(packet.t == "MESSAGE_REACTION_ADD") member.roles.add(roles[index])
+            else member.roles.remove(roles[index])
         })
     })
 }
-
-module.exports.help = {
-    name: "reaction"
-}
-module.exports.aliases = ["react", "role", "reactionrole"]
