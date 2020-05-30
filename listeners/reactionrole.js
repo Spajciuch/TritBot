@@ -1,6 +1,4 @@
-const {
-    database
-} = require("firebase")
+const { database } = require("firebase")
 
 module.exports.run = async (client) => {
     client.on('raw', packet => {
