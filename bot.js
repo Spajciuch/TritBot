@@ -127,7 +127,8 @@ client.on("ready", async () => {
       if (err) return console.log(chalk.red("[error] Nie można odczytać pogody, rozłączono z serwerem"))
       var current = currentult[0].current
       var today = moment(new Date()).format("DD.MM")
-      var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
+      // var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
+      let games = ["$help", "Today MichGamesPL#1828 has birthday ^^ Thank you so much"]
       var choose = Math.floor(Math.random() * games.length - 0) + 0
       client.user.setActivity(games[choose])
     })
