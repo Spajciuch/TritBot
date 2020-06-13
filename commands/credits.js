@@ -31,6 +31,8 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
 			if (!message.mentions.members.first()) return message.reply(lang.commands.credits.replies.no_member)
 
 			const member = message.mentions.members.first()
+			if(member.id == message.author.id) return message.reply(lang.commands.credits.replies.no_member)
+
 			const account = data.val()
 
 			if (!account.bucks) return message.reply(lang.commands.credits.replies.no_account + " <:coin:565840795748401152>")
