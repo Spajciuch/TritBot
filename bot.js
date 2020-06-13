@@ -20,14 +20,14 @@ const moment = require("moment")
 
 var firebase = require('firebase')
 var fireconfig = {
-  apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
-  authDomain: "chat-9b30f.firebaseapp.com",
-  databaseURL: "https://chat-9b30f.firebaseio.com",
-  projectId: "chat-9b30f",
-  storageBucket: "chat-9b30f.appspot.com",
-  messagingSenderId: "446829660490",
-  appId: "1:446829660490:web:47998d396e1a54391e19b3",
-  measurementId: "G-KSE9KXNZZZ"
+ apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
+    authDomain: "chat-9b30f.firebaseapp.com",
+    databaseURL: "https://chat-9b30f.firebaseio.com",
+    projectId: "chat-9b30f",
+    storageBucket: "chat-9b30f.appspot.com",
+    messagingSenderId: "446829660490",
+    appId: "1:446829660490:web:47998d396e1a54391e19b3",
+    measurementId: "G-KSE9KXNZZZ"
 };
 // var fireconfig = {
 //     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
@@ -175,7 +175,7 @@ client.on("ready", () => {
               if (guild.id == "678305767756922912" && d.highscore) {
                 guild.channels.cache.get(d.highscore).setName(`💝 | Rekord Online: ${score.toString()}`)
               } else if (d.highscore) {
-                if(!guild.channels.cache.get) return
+                if(!guild.channels.cache.get || !list[3] || !score.toString()) return
                 guild.channels.cache.get(d.highscore).setName(`${list[3]}: ${score.toString()}`)
               }
             })
