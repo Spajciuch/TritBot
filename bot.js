@@ -174,8 +174,10 @@ client.on("ready", () => {
               }
               if (guild.id == "678305767756922912" && d.highscore) {
                 guild.channels.cache.get(d.highscore).setName(`💝 | Rekord Online: ${score.toString()}`)
-              } else if (d.highscore) guild.channels.cache.get(d.highscore).setName(`${list[3]}: ${score.toString()}`)
-              // console.log(score)
+              } else if (d.highscore) {
+                if(!guild.channels.cache.get) return
+                guild.channels.cache.get(d.highscore).setName(`${list[3]}: ${score.toString()}`)
+              }
             })
           }
 
