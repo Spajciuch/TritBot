@@ -115,67 +115,6 @@ module.exports.run = async (client, message, args, embed_color, lang) => {
     }
 }
 
-module.exports.start = async (client) => {
-
-    database.ref(`/reaction_role/list`).once("value").then(l => {
-        const list = l.val()
-
-        if (!l.val()) return
-
-        list.forEach(guildID => {
-            database.ref(`/verification/${guildID}`).once("value").then(data => {
-                const config = data.val()
-
-                const channel = client.channels.cache.get(config.channel)
-                if (!channel) return;
-
-                channel.messages.fetch(config.message).then(message => {
-
-                    const reactionFilter = (reaction, user) => reaction.emoji.name === '❤'
-                    const collector = message.createReactionCollector(reactionFilter)
-                    collector.on("collect", r => {
-                        const users = Array.from(r.users.keys())
-
-                        const member = message.guild.members.cache.get(users[users.length - 1])
-                        member.roles.add(config.role)
-                    })
-                }).catch(err => console.log(chalk.red(`[error] ${err}`)))
-            })
-        })
-    })
-
-    client.on("guildMemberAdd", member => {
-        database.ref(`verification/${member.guild.id}`).once("value").then(data => {
-            database.ref(`settings/${member.guild.id}/prefix`).once("value").then(pf => {
-                const prefix = pf.val()
-
-                if (!data.val()) return
-                const verification = data.val()
-
-                const filter = msg => msg.channel.id == verification.channel && msg.author.id == member.user.id
-                const channel = member.guild.channels.cache.get(verification.channel)
-                const collector = new Discord.MessageCollector(channel, filter);
-                const rolesToGive = []
-                collector.on("collect", msg => {
-                    msg.delete()
-                        .catch(err => {
-                            console.log(chalk.red(`[error] ${err}`))
-                        })
-                    if (msg.content.toLowerCase() == "weryfikacja" || msg.content.toLowerCase() == "verify") {
-                        const defaultRole = member.guild.roles.cache.get(verification.rolesList[0])
-                        msg.member.roles.add(defaultRole)
-                        if (member.guild.id == "678305767756922912") {
-                            const role = member.guild.roles.cache.get("693802548766703647")
-                            msg.member.roles.remove(role)
-                        }
-                        collector.stop()
-                    }
-                })
-            })
-        })
-    })
-}
-
 module.exports.help = {
     name: "verification",
     category: "admin"

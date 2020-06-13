@@ -20,14 +20,14 @@ const moment = require("moment")
 
 var firebase = require('firebase')
 var fireconfig = {
- apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
-    authDomain: "chat-9b30f.firebaseapp.com",
-    databaseURL: "https://chat-9b30f.firebaseio.com",
-    projectId: "chat-9b30f",
-    storageBucket: "chat-9b30f.appspot.com",
-    messagingSenderId: "446829660490",
-    appId: "1:446829660490:web:47998d396e1a54391e19b3",
-    measurementId: "G-KSE9KXNZZZ"
+  apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
+  authDomain: "chat-9b30f.firebaseapp.com",
+  databaseURL: "https://chat-9b30f.firebaseio.com",
+  projectId: "chat-9b30f",
+  storageBucket: "chat-9b30f.appspot.com",
+  messagingSenderId: "446829660490",
+  appId: "1:446829660490:web:47998d396e1a54391e19b3",
+  measurementId: "G-KSE9KXNZZZ"
 };
 // var fireconfig = {
 //     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
@@ -82,7 +82,7 @@ logs.run(client).then(() => console.log(chalk.blue("[listener] logs.js")))
 status.start(client).then(() => console.log(chalk.blue("[listener] status.js")))
 wordsFilter.start(client).then(() => console.log(chalk.blue("[listener] wordsFilter.js")))
 counting.start(client).then(() => console.log(chalk.blue("[listener] counting.js")))
-verification.start(client).then(() => console.log(chalk.blue("[listener] verification.js")))
+// verification.start(client).then(() => console.log(chalk.blue("[listener] verification.js")))
 // xp.start(client).then(() => console.log(chalk.blue(`[listener] xp.js`)))
 propositions.run(client).then(() => console.log(chalk.blue(`[listener] propositions.js`)))
 anon.run(client).then(() => console.log(chalk.blue(`[listener] anon.js`)))
@@ -127,8 +127,8 @@ client.on("ready", async () => {
       if (err) return console.log(chalk.red("[error] Nie można odczytać pogody, rozłączono z serwerem"))
       var current = currentult[0].current
       var today = moment(new Date()).format("DD.MM")
-      var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
-      // let games = ["$help", "Today MichGamesPL#1828 has birthday ^^ Thank you so much"]
+      // var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
+      let games = ["$help", "Today MichGamesPL#1828 has birthday ^^ Thank you so much"]
       var choose = Math.floor(Math.random() * games.length - 0) + 0
       client.user.setActivity(games[choose])
     })
@@ -252,30 +252,54 @@ function generateSwitches(message) {
 }
 
 client.on("message", message => {
+  if(message.author.bot) return
+
+  database.ref(`verification/${message.guild.id}`).once("value").then(data => {
+
+    if (!data.val()) return
+    const verification = data.val()
+    const member = message.member
+
+    const channel = member.guild.channels.cache.get(verification.channel)
+    if (channel.id !== message.channel.id) return
+    
+    if(message.deletable) message.delete()
+
+    if (message.content.toLowerCase() == "weryfikacja" || message.content.toLowerCase() == "verify") {
+      const defaultRole = member.guild.roles.cache.get(verification.rolesList[0])
+      member.roles.add(defaultRole)
+    if (member.guild.id == "678305767756922912") {
+        const role = member.guild.roles.cache.get("693802548766703647")
+        member.roles.remove(role)
+      }
+
+    }
+  })
+})
+
+client.on("message", message => {
 
   if (message.channel.type == "dm") return
   if (message.guild.id == "264445053596991498") return
   if (message.channel.id == "587907176467529738") message.react("✅")
+  if (message.author.bot) return
 
-  database.ref(`/settings/${message.guild.id}/embed_color`).once("value").then(ec => {
-    database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(pf => {
+  database.ref(`/settings/${message.guild.id}/prefix`).once("value").then(pf => {
+    let prefix = pf.val()
+    if (!message.content.startsWith(prefix)) return
+
+    database.ref(`/settings/${message.guild.id}/embed_color`).once("value").then(ec => {
       database.ref(`/settings/${message.guild.id}/language`).once("value").then(ladb => {
         const la = ladb.val()
 
         if (message.content.includes(client.user.id)) {
           message.reply("**prefix: **`" + pf.val() + "`")
         }
-
-        if (message.author.bot) return
-
-        if (message.channel.type == "dm") return
         antiRaid.run(message, client)
         if (la == "PL") reactions.run(client, message)
 
         var embed_color = ec.val()
-        let prefix = pf.val()
 
-        if (!message.content.startsWith(prefix)) return
 
         let messageArray = message.content.split(" ")
         let cmd = messageArray[0]
