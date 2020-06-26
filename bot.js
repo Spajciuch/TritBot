@@ -20,14 +20,13 @@ const moment = require("moment")
 
 var firebase = require('firebase')
 var fireconfig = {
- apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
-    authDomain: "chat-9b30f.firebaseapp.com",
-    databaseURL: "https://chat-9b30f.firebaseio.com",
-    projectId: "chat-9b30f",
-    storageBucket: "chat-9b30f.appspot.com",
-    messagingSenderId: "446829660490",
-    appId: "1:446829660490:web:47998d396e1a54391e19b3",
-    measurementId: "G-KSE9KXNZZZ"
+  apiKey: "AIzaSyCC4lGc4R2wDdvIOXnNLTKcXMIl-jR4kTU",
+    authDomain: "trit-237017.firebaseapp.com",
+    databaseURL: "https://trit-237017.firebaseio.com",
+    projectId: "trit-237017",
+    storageBucket: "trit-237017.appspot.com",
+    messagingSenderId: "315726150019",
+    appId: "1:315726150019:web:538749b28ad0fd3b595eb6"
 };
 // var fireconfig = {
 //     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
