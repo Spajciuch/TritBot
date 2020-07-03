@@ -263,6 +263,7 @@ client.on("message", message => {
     const verification = data.val()
     const member = message.member
 
+    if(!member.guild.channels.cache.get(verification.channel)) return
     const channel = member.guild.channels.cache.get(verification.channel)
     if (channel.id !== message.channel.id) return
     
