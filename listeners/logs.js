@@ -103,6 +103,8 @@ module.exports.run = async (client) => {
       const settings = data.val()
       if (!settings.logschan || !settings.logs) return;
 
+      if(!newMessage.guild.channels.cache.get(settings.logschan)) return
+
       const channel = newMessage.guild.channels.cache.get(settings.logschan)
       const language = settings.language
 
@@ -119,7 +121,7 @@ module.exports.run = async (client) => {
         .addField(lang.logs.messageEdit.embeds.fields[1], "```" + newMessage.content + "```", true)
         .addField(lang.logs.messageRemove.embeds.fields[1], newMessage.channel, true)
         .addField(lang.logs.messageEdit.embeds.fields[2], newMessage.author.tag)
-      channel.send(embed)
+      if(channel) channel.send(embed)
     })
   })
 
