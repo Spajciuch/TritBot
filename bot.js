@@ -125,6 +125,7 @@ client.on("ready", async () => {
       degreeType: 'C'
     }, function (err, currentult) {
       if (err) return console.log(chalk.red("[error] Nie można odczytać pogody, rozłączono z serwerem"))
+      if(!currentult[0]) return
       var current = currentult[0].current
       var today = moment(new Date()).format("DD.MM")
       var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
