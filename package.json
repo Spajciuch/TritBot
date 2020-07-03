@@ -12,7 +12,7 @@
   "dependencies": {
     "ascii-text-generator": "^1.0.5",
     "bufferutil": "^4.0.1",
-    "canvas": "^2.6.0",
+    "canvas": "^2.6.1",
     "chalk": "^2.4.2",
     "cleverbot": "^1.0.1",
     "currency-formatter": "^1.5.3",
@@ -37,7 +37,6 @@
     "level-session-store": "^2.2.0",
     "lyrics-finder": "^19.0.21",
     "moment": "^2.24.0",
-    "mongodb": "^3.5.5",
     "mongoose": "^5.9.7",
     "ms": "^2.1.1",
     "node-opus": "^0.3.2",

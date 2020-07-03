@@ -20,14 +20,12 @@ const moment = require("moment")
 
 var firebase = require('firebase')
 var fireconfig = {
- apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
-    authDomain: "chat-9b30f.firebaseapp.com",
-    databaseURL: "https://chat-9b30f.firebaseio.com",
-    projectId: "chat-9b30f",
-    storageBucket: "chat-9b30f.appspot.com",
-    messagingSenderId: "446829660490",
-    appId: "1:446829660490:web:47998d396e1a54391e19b3",
-    measurementId: "G-KSE9KXNZZZ"
+  apiKey: process.env.API,
+  authDomain: process.env.ID + ".firebaseapp.com",
+  databaseURL: `https://${process.env.ID}.firebaseio.com`,
+  projectId: process.env.ID,
+  storageBucket: process.env.ID + ".appspot.com",
+  messagingSenderId: process.env.SENDER
 };
 // var fireconfig = {
 //     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
@@ -75,6 +73,7 @@ const anon = require("./listeners/anon.js")
 const voiceDetector = require("./listeners/voiceDetector.js")
 const autoRole = require("./listeners/autoRole.js")
 const reactionRole = require("./listeners/reactionRole.js")
+const newMember = require("./listeners/newMember.js")
 
 pool.run(client).then(() => console.log(chalk.blue("[listener] pool.js")))
 logs.run(client).then(() => console.log(chalk.blue("[listener] logs.js")))
@@ -90,6 +89,7 @@ anon.run(client).then(() => console.log(chalk.blue(`[listener] anon.js`)))
 voiceDetector.run(client).then(() => console.log(chalk.blue(`[listener] voiceDetector.js`)))
 autoRole.run(client).then(() => console.log(chalk.blue(`[listener] autoRole.js`)))
 reactionRole.run(client).then(() => console.log(chalk.blue(`[listeners] reactionRole.js`)))
+newMember.run(client).then(() => console.log(chalk.blue(`[listeners] newMember.js`)))
 
 client.on("ready", async () => {
   const user = client.users.cache.get("367390191721381890")
@@ -127,8 +127,8 @@ client.on("ready", async () => {
       if (err) return console.log(chalk.red("[error] Nie można odczytać pogody, rozłączono z serwerem"))
       var current = currentult[0].current
       var today = moment(new Date()).format("DD.MM")
-      // var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
-      let games = ["$help", "Today MichGamesPL#1828 has birthday ^^ Thank you so much"]
+      var games = ["$help", "I'm serving " + client.guilds.cache.size + " guilds", "Serving " + client.users.cache.size + " users", "Today is " + day + " " + today, "Temperature: " + current.temperature + "°C"]
+      // let games = ["$help", "Today MichGamesPL#1828 has birthday ^^ Thank you so much"]
       var choose = Math.floor(Math.random() * games.length - 0) + 0
       client.user.setActivity(games[choose])
     })
@@ -175,7 +175,7 @@ client.on("ready", () => {
               if (guild.id == "678305767756922912" && d.highscore) {
                 guild.channels.cache.get(d.highscore).setName(`💝 | Rekord Online: ${score.toString()}`)
               } else if (d.highscore) {
-                if(!guild.channels.cache.get(d.highscore) || !list[3] || !score.toString()) return
+                if(!guild.channels.cache.get(d.highscore)|| !list[3] || !score.toString()) return
                 guild.channels.cache.get(d.highscore).setName(`${list[3]}: ${score.toString()}`)
               }
             })

@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 const uri = `mongodb+srv://trit:${process.env.PASSWORD}@cluster0-0qytd.gcp.mongodb.net/test?retryWrites=true&w=majority`

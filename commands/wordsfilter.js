@@ -70,7 +70,7 @@ module.exports.start = async (client) => {
     if (!message.guild) return;
     database.ref(`/settings/${message.guild.id}/`).once("value").then(data => {
       let settings = data.val()
-
+      if(!settings) return
       l = settings.language
       let lang
 
@@ -174,7 +174,7 @@ module.exports.start = async (client) => {
                 database.ref(`/settings/${member.guild.id}/wrole`).once('value')
                   .then(wrole => {
                     var roleId = wrole.val()
-                    if (!msg.val() || !chan.val()) return;
+                    if (!msg.val() || !client.channels.cache.get(chan.val())) return;
                     var wlcm = msg.val()
                     client.channels.cache.get(chan.val()).send(wlcm.replace("/member/", member))
                     if (roleId == "@everyone") return

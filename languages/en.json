@@ -925,6 +925,16 @@
             "embeds": {
                 "titles": "Roles Menu",
                 "fields": "Choose some roles from the list below"
+            }, 
+            "card": {
+                "replies": {
+                    "properUse": "you can use this command in this way: $card <enable/disable>",
+                    "permission_error":"you don't have enoug permissions to execute this command",
+                    "setChannel": "first you have to set a greeting message using command: `$settings welcome <message>`",
+                    "success": "successfully set an greeting image",
+                    "disable": "successfully disabled an greeting image"
+                },
+                "help": "Set an greeting image on your server $card <enable/disable>"
             }
         }
     },

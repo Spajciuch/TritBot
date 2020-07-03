@@ -939,6 +939,16 @@
                 "titles": "Menu ról",
                 "fields": "Wybierz role z listy"
             }
+        }, 
+        "card": {
+            "replies": {
+                "properUse": "możliwe użycia: $card <enable/disable>",
+                "permission_error":"nie masz uprawnień",
+                "setChannel": "najpierw musisz ustawić wiadomość powitalną komendą `$settings welcome <wiadomość>`",
+                "success": "pomyślnie ustawiono obrazek",
+                "disable": "pomyślnie wyłączono wysyłanie obrazka"
+            },
+            "help": "Ustaw obrazek powitalny serwera $card <enable/disable>"
         }
     },
     "responses": [
