@@ -19,24 +19,24 @@ var reactions = require('./listeners/reaction.js')
 const moment = require("moment")
 
 var firebase = require('firebase')
-var fireconfig = {
-  apiKey: process.env.API,
-  authDomain: process.env.ID + ".firebaseapp.com",
-  databaseURL: `https://${process.env.ID}.firebaseio.com`,
-  projectId: process.env.ID,
-  storageBucket: process.env.ID + ".appspot.com",
-  messagingSenderId: process.env.SENDER
-};
 // var fireconfig = {
-//     apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
-//     authDomain: "chat-9b30f.firebaseapp.com",
-//     databaseURL: "https://chat-9b30f.firebaseio.com",
-//     projectId: "chat-9b30f",
-//     storageBucket: "chat-9b30f.appspot.com",
-//     messagingSenderId: "446829660490",
-//     appId: "1:446829660490:web:47998d396e1a54391e19b3",
-//     measurementId: "G-KSE9KXNZZZ"
+//   apiKey: process.env.API,
+//   authDomain: process.env.ID + ".firebaseapp.com",
+//   databaseURL: `https://${process.env.ID}.firebaseio.com`,
+//   projectId: process.env.ID,
+//   storageBucket: process.env.ID + ".appspot.com",
+//   messagingSenderId: process.env.SENDER
 // };
+var fireconfig = {
+    apiKey: "AIzaSyBewmiPJqsuA9HijzBy3hMDKyVG1zieB6E",
+    authDomain: "chat-9b30f.firebaseapp.com",
+    databaseURL: "https://chat-9b30f.firebaseio.com",
+    projectId: "chat-9b30f",
+    storageBucket: "chat-9b30f.appspot.com",
+    messagingSenderId: "446829660490",
+    appId: "1:446829660490:web:47998d396e1a54391e19b3",
+    measurementId: "G-KSE9KXNZZZ"
+};
 const newDb = require("./database")
 
 firebase.initializeApp(fireconfig);
