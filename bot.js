@@ -19,15 +19,15 @@ var reactions = require('./listeners/reaction.js')
 const moment = require("moment")
 
 var firebase = require('firebase')
- var fireconfig = {
+ /*var fireconfig = {
 apiKey: process.env.API,
 authDomain: process.env.ID + ".firebaseapp.com",
 databaseURL: `https://${process.env.ID}.firebaseio.com`,
 projectId: process.env.ID,
 storageBucket: process.env.ID + ".appspot.com",
 messagingSenderId: process.env.SENDER
-};
-/* var fireconfig = {
+};*/
+ var fireconfig = {
 apiKey: "AIzaSyCK85kqG_-kKnR0jcWlU9TExiX5QZ74JUE",
     authDomain: "trit2-eff12.firebaseapp.com",
     databaseURL: "https://trit2-eff12.firebaseio.com",
@@ -36,7 +36,7 @@ apiKey: "AIzaSyCK85kqG_-kKnR0jcWlU9TExiX5QZ74JUE",
     messagingSenderId: "874262724144",
     appId: "1:874262724144:web:c21e79d40b16ea506bf7f5",
     measurementId: "G-4L0TZNCN08"
-};*/
+};
 const newDb = require("./database")
 
 firebase.initializeApp(fireconfig);
